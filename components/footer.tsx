@@ -1,25 +1,29 @@
-export default function Footer() {
+"use client";
+import { Footer } from "@/components/ui/modem-animated-footer";
+import Image from "next/image";
+
+export default function DrCodeFooter() {
+  const navLinks = [
+    { label: "Contact Us", href: "/contact" },
+    { label: "Terms and Conditions", href: "/terms" },
+    { label: "Privacy Policy", href: "/privacy" },
+  ];
+
   return (
-    <footer className="py-16 px-6 bg-gray-50 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-2xl font-bold text-gray-900">DrCode</div>
-          <div className="flex gap-8 text-gray-600">
-            <a href="#" className="hover:text-gray-900 transition-colors">
-              Twitter
-            </a>
-            <a href="#" className="hover:text-gray-900 transition-colors">
-              LinkedIn
-            </a>
-            <a href="#" className="hover:text-gray-900 transition-colors">
-              GitHub
-            </a>
-          </div>
-        </div>
-        <div className="mt-12 text-center text-gray-500">
-          © {new Date().getFullYear()} DrCode. All rights reserved.
-        </div>
-      </div>
-    </footer>
+    <Footer
+      brandName="DrCode"
+      brandDescription="AI Venture Studio building products from idea to production. We turn concepts into scalable AI systems."
+      socialLinks={[]}
+      navLinks={navLinks}
+      brandIcon={
+        <Image
+          src="/logo.svg"
+          alt="DrCode"
+          width={32}
+          height={32}
+          className="w-8 h-8"
+        />
+      }
+    />
   );
 }

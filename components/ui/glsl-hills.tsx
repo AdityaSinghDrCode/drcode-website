@@ -1,37 +1,27 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
+import { useEffect, useRef } from 'react';
+import * as THREE from 'three';
 
-interface GLSLHillsProps {
-  width?: string;
-  height?: string;
-  cameraZ?: number;
-  planeSize?: number;
-  speed?: number;
+interface PlaneUniforms {
+  [uniform: string]: THREE.IUniform;
+  time: THREE.IUniform<number>;
 }
 
-const GLSLHills = ({
-  width = "100vw",
-  height = "100vh",
-  cameraZ = 125,
-  planeSize = 256,
-  speed = 0.5,
-}: GLSLHillsProps) => {
+const GLSLHills = ({ width = '100vw', height = '100vh', cameraZ = 125, planeSize = 256, speed = 0.5 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Plane class
     class Plane {
-      uniforms: {
-        time: { type: string; value: number };
-      };
+      uniforms: PlaneUniforms;
       mesh: THREE.Mesh;
       time: number;
 
       constructor() {
         this.uniforms = {
-          time: { type: "f", value: 0 },
+          time: { value: 0 },
         };
         this.mesh = this.createMesh();
         this.time = speed;
@@ -161,7 +151,7 @@ const GLSLHills = ({
                 gl_FragColor = vec4(color, opacity);
               }
             `,
-            transparent: true,
+            transparent: true
           })
         );
       }
@@ -171,19 +161,12 @@ const GLSLHills = ({
       }
     }
 
+    // Three.js setup
     if (!canvasRef.current) return;
 
-    const renderer = new THREE.WebGLRenderer({
-      canvas: canvasRef.current,
-      antialias: false,
-    });
+    const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: false });
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      45,
-      window.innerWidth / window.innerHeight,
-      1,
-      10000
-    );
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
     const clock = new THREE.Clock();
     const plane = new Plane();
 
@@ -213,7 +196,7 @@ const GLSLHills = ({
       camera.position.set(0, 16, cameraZ);
       camera.lookAt(new THREE.Vector3(0, 28, 0));
       scene.add(plane.mesh);
-      window.addEventListener("resize", resize);
+      window.addEventListener('resize', resize);
       resize();
       renderLoop();
     };
@@ -221,25 +204,25 @@ const GLSLHills = ({
     init();
 
     return () => {
-      window.removeEventListener("resize", resize);
+      window.removeEventListener('resize', resize);
     };
   }, [cameraZ, planeSize, speed]);
 
   return (
-    <div ref={containerRef} style={{ position: "relative", width, height }}>
+    <div ref={containerRef} style={{ position: 'relative', width, height }}> 
       <canvas
         ref={canvasRef}
         style={{
-          position: "absolute",
+          position: 'absolute',
           top: 0,
           right: 0,
           bottom: 0,
           left: 0,
-          zIndex: 1,
+          zIndex: 1
         }}
       />
     </div>
   );
 };
 
-export { GLSLHills };
+export { GLSLHills } ;

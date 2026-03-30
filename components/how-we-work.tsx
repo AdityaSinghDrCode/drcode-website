@@ -1,3 +1,4 @@
+
 export default function HowWeWork() {
   const steps = [
     {
@@ -27,15 +28,18 @@ export default function HowWeWork() {
   ];
 
   return (
-    <section className="py-32 px-6 bg-gray-50">
+    <section id="how-we-work" className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
+        <p className="text-sm md:text-base font-medium tracking-widest uppercase text-[#875BF8] text-center mb-4">
+          Our Process
+        </p>
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 text-gray-900">
           How We Work
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {steps.map((step, index) => (
             <div key={index} className="text-center">
-              <div className="text-5xl font-bold text-gray-200 mb-4">
+              <div className="text-6xl font-bold text-[#875BF8]/20 mb-4">
                 {step.number}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">

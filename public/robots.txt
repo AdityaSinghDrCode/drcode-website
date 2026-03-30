@@ -1,0 +1,20 @@
+# robots.txt for DrCode — AI Venture Studio
+# https://drcode.ai/robots.txt
+
+User-agent: *
+Allow: /
+
+# Main pages
+Allow: /contact
+Allow: /terms
+Allow: /privacy
+
+# Disallow admin or internal paths (if any in future)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Sitemap location
+Sitemap: https://drcode.ai/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
