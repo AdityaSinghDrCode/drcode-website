@@ -50,9 +50,11 @@ export default function Navbar() {
             </button>
           </div>
 
-          <Button className="bg-[#875BF8] hover:bg-[#7347e0] text-white px-6 py-2 text-sm font-medium">
-            Get Started
-          </Button>
+          <Link href="/contact">
+            <Button className="bg-[#875BF8] hover:bg-[#7347e0] text-white px-6 py-2 text-sm font-medium">
+              Get Started
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>

@@ -44,31 +44,31 @@ export default function ContactPage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 rounded-2xl p-8 text-center">
+            <a
+              href="tel:+919999410384"
+              className="bg-gray-50 rounded-2xl p-8 text-center hover:bg-gray-100 transition-colors cursor-pointer block"
+            >
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#875BF8]/10 mb-6">
                 <Phone className="w-8 h-8 text-[#875BF8]" />
               </div>
               <h2 className="text-xl font-semibold mb-3 text-gray-900">Phone</h2>
-              <a
-                href="tel:+919999410384"
-                className="text-lg text-gray-600 hover:text-[#875BF8] transition-colors"
-              >
+              <span className="text-lg text-gray-600">
                 +91 99994 10384
-              </a>
-            </div>
+              </span>
+            </a>
 
-            <div className="bg-gray-50 rounded-2xl p-8 text-center">
+            <a
+              href="mailto:hello@drcode.ai"
+              className="bg-gray-50 rounded-2xl p-8 text-center hover:bg-gray-100 transition-colors cursor-pointer block"
+            >
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#875BF8]/10 mb-6">
                 <Mail className="w-8 h-8 text-[#875BF8]" />
               </div>
               <h2 className="text-xl font-semibold mb-3 text-gray-900">Email</h2>
-              <a
-                href="mailto:hello@drcode.ai"
-                className="text-lg text-gray-600 hover:text-[#875BF8] transition-colors"
-              >
+              <span className="text-lg text-gray-600">
                 hello@drcode.ai
-              </a>
-            </div>
+              </span>
+            </a>
           </div>
 
           <div className="mt-16 text-center">

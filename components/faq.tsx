@@ -1,9 +1,12 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { BorderBeam } from "./ui/border-beam";
 
 export default function FAQ() {
   const faqs = [
@@ -33,18 +36,31 @@ export default function FAQ() {
 
         <Accordion type="single" collapsible className="space-y-6 max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="border-b border-gray-300"
-            >
-              <AccordionTrigger className="text-xl md:text-2xl font-semibold text-black hover:no-underline py-6">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-700 text-base md:text-lg leading-relaxed pb-6">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+            <div key={index} className="group relative">
+              <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white px-6 transition-all duration-300 hover:border-[#875BF8]/30 hover:shadow-lg">
+                {/* Border beam on hover */}
+                <BorderBeam
+                  size={200}
+                  duration={10}
+                  delay={index * 1.5}
+                  colorFrom="#875BF8"
+                  colorTo="#6366f1"
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                />
+
+                <AccordionItem
+                  value={`item-${index}`}
+                  className="border-b-0"
+                >
+                  <AccordionTrigger className="text-xl md:text-2xl font-semibold text-black hover:no-underline py-6 hover:text-[#875BF8] transition-colors">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-700 text-base md:text-lg leading-relaxed pb-6">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </div>
+            </div>
           ))}
         </Accordion>
       </div>

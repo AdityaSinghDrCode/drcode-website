@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { Button } from "./ui/button";
 
 const GLSLHills = dynamic(() => import("./ui/glsl-hills").then((mod) => mod.GLSLHills), {
@@ -28,9 +29,11 @@ export default function Hero() {
           AI-native products used in the real world.
         </p>
         <div className="flex justify-center items-center pointer-events-auto pt-4">
-          <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-6 text-base">
-            Start a Project
-          </Button>
+          <Link href="/contact">
+            <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-6 text-base">
+              Start a Project
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
