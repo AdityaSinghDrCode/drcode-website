@@ -10,7 +10,7 @@ export default function WhatWeDo() {
       Icon: Building2,
       name: "AI Systems for Industrial Intelligence",
       description:
-        "We are working with a well-funded US-based AI company founded by a serial entrepreneur, building AI products for the Engineering, Procurement, and Construction (EPC) industry. Our team contributes across the entire lifecycle — from product discovery and experimentation to building production-grade AI systems.",
+        "We are working with a well-funded US-based AI company founded by a serial entrepreneur, building AI products for the Engineering, Procurement, and Construction (EPC) industry. Our team contributes across the entire lifecycle  from product discovery and experimentation to building production-grade AI systems.",
       href: "#",
       cta: "Learn more",
       background: (
