@@ -1,19 +1,19 @@
 
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 bg-white">
-      <div className="max-w-4xl mx-auto text-center">
-        <p className="text-sm md:text-base font-medium tracking-widest uppercase text-[#875BF8] mb-4">
-          Who We Are
-        </p>
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">
+    <section id="about" className="py-24 md:py-32 px-6">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-12">
           About DrCode
         </h2>
-        <p className="text-xl text-gray-600 leading-relaxed">
-          DrCode is an AI venture studio that builds products from idea to
-          production. We work with startups and companies to turn concepts into
-          scalable AI systems.
-        </p>
+        <div className="space-y-6">
+          <p className="text-2xl md:text-3xl text-black leading-relaxed font-medium">
+            DrCode is an AI venture studio that builds products from idea to production.
+          </p>
+          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
+            We work with startups and companies to turn concepts into scalable AI systems. No consultants. No contractors. Just experienced builders who ship real products.
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -26,3 +26,22 @@
     --radius: 0.5rem;
   }
 }
+
+@theme inline {
+  --animate-line-shadow: line-shadow 15s linear infinite;
+
+  @keyframes line-shadow {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% -100%;
+    }
+  }
+}
+
+@layer utilities {
+  .after\:bg-size-\[0\.06em_0\.06em\]::after {
+    background-size: 0.06em 0.06em;
+  }
+}

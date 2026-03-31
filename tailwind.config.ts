@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundSize: {
+        'line-shadow': '0.06em 0.06em',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

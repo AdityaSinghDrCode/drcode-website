@@ -1,46 +1,99 @@
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid"
+import { DotPattern } from "@/components/ui/dot-pattern"
+import { GridPattern } from "@/components/ui/grid-pattern"
+import { Building2, Smartphone, Rocket, Mic2 } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 export default function WhatWeDo() {
   const services = [
     {
-      title: "AI Systems for Industrial Intelligence",
+      Icon: Building2,
+      name: "AI Systems for Industrial Intelligence",
       description:
-        "Enterprise-grade AI systems that transform industrial operations",
+        "We are working with a well-funded US-based AI company founded by a serial entrepreneur, building AI products for the Engineering, Procurement, and Construction (EPC) industry. Our team contributes across the entire lifecycle — from product discovery and experimentation to building production-grade AI systems.",
+      href: "#",
+      cta: "Learn more",
+      background: (
+        <DotPattern
+          className={cn(
+            "absolute inset-0 h-full w-full fill-gray-400/50",
+            "[mask-image:radial-gradient(500px_circle_at_top_right,white,transparent)]"
+          )}
+        />
+      ),
+      className: "lg:col-span-2 lg:row-span-2",
     },
     {
-      title: "AI Platforms for Startups",
-      description: "Build and scale AI products from zero to production",
+      Icon: Smartphone,
+      name: "Product Infrastructure for Consumer Platforms",
+      description:
+        "We are building an internal product for a publicly listed Indian startup that helps their teams test new wall visualization systems faster and more efficiently.",
+      href: "#",
+      cta: "Learn more",
+      background: (
+        <GridPattern
+          width={20}
+          height={20}
+          className={cn(
+            "absolute inset-0 h-full w-full stroke-gray-400/50",
+            "[mask-image:radial-gradient(400px_circle_at_bottom_left,white,transparent)]"
+          )}
+        />
+      ),
+      className: "lg:col-span-1 lg:row-span-2",
     },
     {
-      title: "AI Voice Systems",
-      description: "Intelligent voice interfaces for real-world applications",
+      Icon: Rocket,
+      name: "AI Platforms for Startups",
+      description:
+        "We are co-creating platforms with startups in logistics and consumer services, helping take products from idea to launch.",
+      href: "#",
+      cta: "Learn more",
+      background: (
+        <DotPattern
+          className={cn(
+            "absolute inset-0 h-full w-full fill-gray-400/50",
+            "[mask-image:radial-gradient(400px_circle_at_top_left,white,transparent)]"
+          )}
+        />
+      ),
+      className: "lg:col-span-1 lg:row-span-2",
     },
     {
-      title: "Internal AI Products",
-      description: "Custom AI tools that accelerate your team's workflow",
+      Icon: Mic2,
+      name: "AI Voice Systems",
+      description:
+        "With Mindler, we are building AI-powered voice counselors and automation tools that help scale student counseling and guidance. This includes designing intelligent conversational interfaces and building scalable voice infrastructure.",
+      href: "#",
+      cta: "Learn more",
+      background: (
+        <GridPattern
+          width={25}
+          height={25}
+          className={cn(
+            "absolute inset-0 h-full w-full stroke-gray-400/50",
+            "[mask-image:radial-gradient(600px_circle_at_bottom_right,white,transparent)]"
+          )}
+        />
+      ),
+      className: "lg:col-span-2 lg:row-span-2",
     },
   ];
 
   return (
-    <section id="what-we-do" className="py-32 px-6 bg-white">
+    <section id="what-we-do" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <p className="text-sm md:text-base font-medium tracking-widest uppercase text-[#875BF8] text-center mb-4">
-          Our Services
-        </p>
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 text-gray-900">
-          What We Do
-        </h2>
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-12 max-w-5xl mx-auto">
-          {services.map((service, index) => (
-            <div key={index}>
-              <h3 className="text-2xl font-semibold mb-3 text-gray-900">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))}
+        <div className="mb-16 text-center">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-6">
+            What we build
+          </h2>
         </div>
+
+        <BentoGrid className="lg:grid-cols-3">
+          {services.map((service) => (
+            <BentoCard key={service.name} {...service} />
+          ))}
+        </BentoGrid>
       </div>
     </section>
   );
