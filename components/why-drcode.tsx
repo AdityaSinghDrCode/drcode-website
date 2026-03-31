@@ -1,20 +1,8 @@
 "use client";
 
 import { BorderBeam } from "./ui/border-beam";
-import { Marquee } from "./ui/marquee";
 import { cn } from "@/lib/utils";
 import { Target, Users, Layers, Zap, ArrowRight } from "lucide-react";
-
-const highlights = [
-  "Ship Fast",
-  "Build Real Products",
-  "Zero Bureaucracy",
-  "Founder-Led",
-  "Production Ready",
-  "AI Native",
-  "End-to-End",
-  "Results Driven",
-];
 
 export default function WhyDrCode() {
   const reasons = [
@@ -45,7 +33,7 @@ export default function WhyDrCode() {
   ];
 
   return (
-    <section className="py-24 md:py-32 px-6 overflow-hidden">
+    <section className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-6">
@@ -56,7 +44,7 @@ export default function WhyDrCode() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 gap-6">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
@@ -97,25 +85,6 @@ export default function WhyDrCode() {
               </div>
             );
           })}
-        </div>
-
-        {/* Marquee */}
-        <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
-          <Marquee pauseOnHover className="[--duration:30s]">
-            {highlights.map((text, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-4 px-6 py-3 rounded-full border border-gray-200 bg-gray-50 hover:border-[#875BF8]/50 hover:bg-[#875BF8]/5 transition-colors cursor-default"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#875BF8]" />
-                <span className="text-sm font-medium text-gray-700 whitespace-nowrap">
-                  {text}
-                </span>
-              </div>
-            ))}
-          </Marquee>
         </div>
       </div>
     </section>
