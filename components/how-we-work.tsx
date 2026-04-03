@@ -1,105 +1,107 @@
 "use client";
 
-import { BorderBeam } from "./ui/border-beam";
-import { cn } from "@/lib/utils";
-import { Lightbulb, Zap, Code2, Rocket } from "lucide-react";
+import Image from "next/image";
 
 export default function HowWeWork() {
   const steps = [
     {
       number: "01",
       title: "Idea & Discovery",
-      description:
-        "We start by understanding your vision and identifying the core problem to solve. No fluff, just clarity.",
-      icon: Lightbulb,
+      image: "/illustration/idea-launch.svg",
     },
     {
       number: "02",
       title: "Rapid Prototyping",
-      description:
-        "Quick iterations to validate concepts. We test assumptions early and often to find what actually works.",
-      icon: Zap,
+      image: "/illustration/working-vacation.svg",
     },
     {
       number: "03",
       title: "Build & Scale",
-      description:
-        "Engineering production-ready systems. We focus on reliability, performance, and code that lasts.",
-      icon: Code2,
+      image: "/illustration/product-launch.svg",
     },
     {
       number: "04",
-      title: "Production Deployment",
-      description:
-        "Launch and monitor real-world usage. Continuous improvements based on actual data, not guesses.",
-      icon: Rocket,
+      title: "Deploy & Monitor",
+      image: "/illustration/remote-work.svg",
     },
   ];
 
   return (
-    <section id="how-we-work" className="py-24 md:py-32 px-6">
+    <section
+      id="how-we-work"
+      className="py-24 md:py-32 px-6 bg-gradient-to-b from-gray-50 to-white"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-6">
+        <div className="mb-20 text-center">
+          <h2 className="text-4xl md:text-6xl lg:text-[4.25rem] font-semibold text-gray-900 mb-6 leading-[0.95] tracking-[-0.02em]">
             How we work
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Four steps from idea to production. Simple, fast, effective.
+          <p className="text-base md:text-lg text-gray-600 max-w-[44ch] mx-auto leading-8">
+            Four steps from idea to production
           </p>
         </div>
 
+        <div className="pointer-events-none relative mb-10 hidden md:block">
+          <Image
+            src="/illustration/surreal-flying-bulbs.svg"
+            alt="Decorative bulbs"
+            width={120}
+            height={120}
+            className="absolute -left-2 -top-8 h-20 w-20 object-contain opacity-70 animate-float-soft"
+          />
+          <Image
+            src="/illustration/graphic-design.svg"
+            alt="Decorative design"
+            width={120}
+            height={120}
+            className="absolute right-0 -top-12 h-20 w-20 object-contain opacity-70 animate-drift-soft"
+          />
+        </div>
+
         <div className="relative">
-          {/* Timeline connector line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent -translate-y-1/2" />
+          {/* Connector line */}
+          <div className="hidden lg:block absolute top-[140px] left-0 right-0 h-1 bg-gradient-to-r from-[#875BF8]/20 via-[#875BF8]/40 to-[#875BF8]/20" />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <div
-                  key={index}
-                  className="relative group"
-                >
-                  <div
-                    className={cn(
-                      "relative overflow-hidden rounded-2xl bg-white border border-gray-200 p-8 h-full",
-                      "transition-all duration-300 hover:border-gray-300 hover:shadow-lg"
-                    )}
-                  >
-                    {/* Border beam on hover */}
-                    <BorderBeam
-                      size={150}
-                      duration={12}
-                      delay={index * 2}
-                      colorFrom="#875BF8"
-                      colorTo="#6366f1"
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+            {steps.map((step, index) => (
+              <div key={index} className="group relative">
+                <div className="relative bg-white rounded-3xl p-8 border-2 border-gray-100 hover:border-[#875BF8] transition-all duration-300 hover:shadow-2xl hover:-translate-y-3">
+                  {/* Step number */}
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-[#875BF8] text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform">
+                    {step.number}
+                  </div>
+
+                  {/* Illustration */}
+                  <div className="mb-6 h-40 flex items-center justify-center">
+                    <Image
+                      src={step.image}
+                      alt={step.title}
+                      width={160}
+                      height={160}
+                      className="object-contain group-hover:scale-110 transition-transform duration-500"
                     />
+                  </div>
 
-                    {/* Step number badge */}
-                    <div className="flex items-center justify-between mb-6">
-                      <span className="text-sm font-bold text-gray-400 tracking-wider">
-                        STEP {step.number}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center group-hover:bg-[#875BF8]/10 transition-colors">
-                        <Icon className="w-5 h-5 text-gray-600 group-hover:text-[#875BF8] transition-colors" />
-                      </div>
-                    </div>
+                  <Image
+                    src="/illustration/abstract-art-6.svg"
+                    alt="Decorative abstract"
+                    width={84}
+                    height={84}
+                    className="pointer-events-none absolute right-2 top-2 h-12 w-12 object-contain opacity-25"
+                  />
 
-                    {/* Content */}
-                    <h3 className="text-xl font-semibold text-black mb-3">
+                  {/* Content */}
+                  <div className="text-center">
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-900 leading-snug tracking-tight mb-1 group-hover:text-[#875BF8] transition-colors duration-300">
                       {step.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {step.description}
-                    </p>
-
-                    {/* Bottom accent line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#875BF8] to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                   </div>
+
+                  {/* Decorative corner */}
+                  <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-br from-transparent to-[#875BF8]/10 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>

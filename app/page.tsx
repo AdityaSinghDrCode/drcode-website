@@ -6,6 +6,7 @@ import VisionMissionValues from "@/components/vision-mission-values";
 import FAQ from "@/components/faq";
 import CTA from "@/components/cta";
 import Footer from "@/components/footer";
+import { Component as TestimonialShowcase } from "@/components/ui/testimonial";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <HowWeWork />
       <WhyDrCode />
       <VisionMissionValues />
+      <TestimonialShowcase />
       <FAQ />
       <CTA />
       <Footer />

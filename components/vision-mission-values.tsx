@@ -1,83 +1,80 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function VisionMissionValues() {
   const items = [
     {
-      number: "01",
       title: "Vision",
-      description:
-        "To simplify technology and make it usable and accessible to everyone in the world.",
+      tagline: "Tech for everyone",
+      image: "/illustration/surreal-flying-bulbs.svg",
+      sticker: "/illustration/question-mark.svg",
+      color: "from-purple-500/10 to-purple-600/10",
     },
     {
-      number: "02",
       title: "Mission",
-      description:
-        "To help users build, grow, and scale by adapting to scalable and affordable technology.",
+      tagline: "Build, grow, scale",
+      image: "/illustration/product-launch.svg",
+      sticker: "/illustration/microphone.svg",
+      color: "from-blue-500/10 to-blue-600/10",
     },
     {
-      number: "03",
       title: "Values",
-      description:
-        "We're obsessed with ownership, integrity, and agility. Everything we build reflects these principles.",
+      tagline: "Own it, build it right",
+      image: "/illustration/shaking-hands.svg",
+      sticker: "/illustration/happy-man-waving.svg",
+      color: "from-indigo-500/10 to-indigo-600/10",
     },
   ];
 
   return (
-    <section id="about" className="py-24 md:py-32 px-6">
+    <section id="about" className="py-24 md:py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-6">
+        <div className="mb-20 text-center">
+          <h2 className="text-4xl md:text-6xl lg:text-[4.25rem] font-semibold text-gray-900 mb-6 leading-[0.95] tracking-[-0.02em]">
             Who we are
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Our purpose, direction, and principles.
+          <p className="text-base md:text-lg text-gray-600 max-w-[58ch] mx-auto leading-8">
+            Our vision, mission, and values drive everything we build
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {items.map((item, index) => (
             <div key={index} className="group relative">
-              <div
-                className={cn(
-                  "relative overflow-hidden rounded-2xl bg-white border border-gray-200 p-8 h-full",
-                  "transition-all duration-500 hover:border-[#875BF8]/30",
-                )}
-              >
-                {/* Shine effect on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                </div>
-
-                {/* Large number background */}
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 p-10 h-full hover:border-[#875BF8] transition-all duration-300 hover:shadow-2xl">
+                {/* Background gradient */}
                 <div
-                  aria-hidden="true"
-                  className="absolute top-2 right-3 z-[1] text-[96px] font-extrabold text-gray-200 select-none leading-none pointer-events-none group-hover:text-[#875BF8]/30 transition-colors duration-500"
-                >
-                  {item.number}
+                  className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
+                />
+
+                {/* Illustration */}
+                <div className="relative mb-8 h-56 flex items-center justify-center">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={220}
+                    height={220}
+                    className="object-contain group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <Image
+                    src={item.sticker}
+                    alt="Decorative sticker"
+                    width={76}
+                    height={76}
+                    className="pointer-events-none absolute right-1 top-1 h-12 w-12 object-contain opacity-65 animate-float-soft"
+                  />
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10">
-                  {/* Small number tag */}
-                  <span className="inline-block px-3 py-1 text-xs font-bold tracking-wider text-gray-500 bg-gray-100 rounded-full mb-6 group-hover:bg-[#875BF8]/10 group-hover:text-[#875BF8] transition-colors duration-300">
-                    {item.number}
-                  </span>
-
-                  {/* Title */}
-                  <h3 className="text-3xl font-bold text-black mb-4 group-hover:text-[#875BF8] transition-colors duration-300">
+                <div className="relative z-10 text-center">
+                  <h3 className="text-2xl md:text-3xl font-semibold leading-tight tracking-tight text-gray-900 mb-4">
                     {item.title}
                   </h3>
-
-                  {/* Description */}
-                  <p className="text-gray-600 text-lg leading-relaxed">
-                    {item.description}
+                  <p className="text-base md:text-lg text-gray-600 leading-8">
+                    {item.tagline}
                   </p>
                 </div>
-
-                {/* Bottom line accent */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#875BF8]/80 to-indigo-500/80 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
             </div>
           ))}

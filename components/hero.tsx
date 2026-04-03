@@ -4,9 +4,12 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-const GLSLHills = dynamic(() => import("./ui/glsl-hills").then((mod) => mod.GLSLHills), {
-  ssr: false,
-});
+const GLSLHills = dynamic(
+  () => import("./ui/glsl-hills").then((mod) => mod.GLSLHills),
+  {
+    ssr: false,
+  },
+);
 
 export default function Hero() {
   return (
@@ -30,7 +33,10 @@ export default function Hero() {
         </p>
         <div className="flex justify-center items-center pointer-events-auto pt-4">
           <Link href="/contact">
-            <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-6 text-base">
+            <Button
+              size="lg"
+              className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-6 text-base rounded-full"
+            >
               Start a Project
             </Button>
           </Link>

@@ -24,7 +24,7 @@ export default function Navbar() {
               height={32}
               className="h-8 w-8"
             />
-            <span className="text-2xl font-bold text-gray-900 tracking-tight">
+            <span className="text-2xl font-semibold text-gray-900 tracking-[-0.015em]">
               DrCode
             </span>
           </Link>
@@ -32,26 +32,26 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("what-we-do")}
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-sm font-semibold tracking-wide text-gray-600 hover:text-gray-900 transition-colors duration-200"
             >
               What We Do
             </button>
             <button
               onClick={() => scrollToSection("how-we-work")}
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-sm font-semibold tracking-wide text-gray-600 hover:text-gray-900 transition-colors duration-200"
             >
               How We Work
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-sm font-semibold tracking-wide text-gray-600 hover:text-gray-900 transition-colors duration-200"
             >
               About
             </button>
           </div>
 
           <Link href="/contact">
-            <Button className="bg-[#875BF8] hover:bg-[#7347e0] text-white px-6 py-2 text-sm font-medium">
+            <Button className="bg-[#875BF8] hover:bg-[#7347e0] text-white px-6 py-2 text-sm font-medium transition-all duration-200 hover:shadow-lg">
               Get Started
             </Button>
           </Link>

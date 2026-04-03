@@ -6,64 +6,68 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { BorderBeam } from "./ui/border-beam";
+import Image from "next/image";
 
 export default function FAQ() {
+  const featureIllustration = "/illustration/question-mark.svg";
+
   const faqs = [
     {
-      question: "How long does it take to build an AI product?",
-      answer:
-        "The timeline varies based on complexity, but most projects range from 4-12 weeks. We start with a discovery phase to understand your needs, then move into rapid prototyping and iterative development. Our goal is to get you to production as quickly as possible while maintaining quality.",
+      question: "How long does it take?",
+      answer: "4-12 weeks from discovery to production. We move fast.",
     },
     {
-      question: "What industries do you work with?",
-      answer:
-        "We work across various industries including healthcare, fintech, e-commerce, education, and enterprise SaaS. Our team has experience building AI solutions for startups to large enterprises companies alike. If you have a problem that AI can solve, we can help.",
+      question: "What industries?",
+      answer: "Healthcare, fintech, e-commerce, education, enterprise SaaS.",
     },
     {
-      question: "Do you offer ongoing support after launch?",
-      answer:
-        "Yes, we provide comprehensive post-launch support including monitoring, maintenance, and continuous improvement. We can also help you scale your AI infrastructure as your user base grows and provide training for your internal team to manage the product.",
+      question: "Support after launch?",
+      answer: "Yes. Monitoring, maintenance, scaling, and team training.",
     },
   ];
 
   return (
-    <section className="py-24 md:py-32 px-6">
+    <section className="py-24 md:py-32 px-6 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-16 text-center">
-          Common questions
-        </h2>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left: Illustration */}
+          <div className="flex items-center justify-center lg:order-1">
+            <Image
+              src={featureIllustration}
+              alt="Questions"
+              width={500}
+              height={500}
+              className="object-contain"
+            />
+          </div>
 
-        <Accordion
-          type="single"
-          collapsible
-          className="space-y-6 max-w-3xl mx-auto"
-        >
-          {faqs.map((faq, index) => (
-            <div key={index} className="group relative">
-              <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white px-6 transition-all duration-300 hover:border-[#875BF8]/30 hover:shadow-lg">
-                {/* Border beam on hover */}
-                <BorderBeam
-                  size={200}
-                  duration={10}
-                  delay={index * 1.5}
-                  colorFrom="#875BF8"
-                  colorTo="#6366f1"
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                />
+          {/* Right: FAQ */}
+          <div className="lg:order-2">
+            <h2 className="text-4xl md:text-6xl lg:text-[4.25rem] font-semibold text-gray-900 mb-12 leading-[0.95] tracking-[-0.02em]">
+              Common questions
+            </h2>
 
-                <AccordionItem value={`item-${index}`} className="border-b-0">
-                  <AccordionTrigger className="text-xl md:text-2xl font-semibold text-black hover:no-underline py-6 hover:text-[#875BF8] transition-colors">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-700 text-base md:text-lg leading-relaxed pb-6">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              </div>
-            </div>
-          ))}
-        </Accordion>
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="group">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-gray-200 bg-white px-6 transition-all duration-300 hover:border-[#875BF8] hover:shadow-xl">
+                    <AccordionItem
+                      value={`item-${index}`}
+                      className="border-b-0"
+                    >
+                      <AccordionTrigger className="text-lg md:text-xl font-semibold tracking-tight text-gray-900 hover:no-underline py-6 hover:text-[#875BF8] transition-colors duration-300">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-gray-700 text-base md:text-lg leading-8 pb-6">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+                </div>
+              ))}
+            </Accordion>
+          </div>
+        </div>
       </div>
     </section>
   );
