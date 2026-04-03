@@ -33,13 +33,15 @@ export default function WhatWeDo() {
             alt="AI voice systems"
             width={220}
             height={220}
+            loading="lazy"
             className="pointer-events-none absolute -right-4 -top-6 md:h-40 md:w-40 h-32 w-32 object-contain opacity-80 transition-transform duration-500 group-hover:scale-110"
           />
           <Image
             src="/illustration/microphone.svg"
-            alt="Microphone"
+            alt=""
             width={96}
             height={96}
+            loading="lazy"
             className="pointer-events-none absolute left-3 top-3 md:h-16 md:w-16 h-12 w-12 object-contain opacity-85 animate-float-soft hidden md:block"
           />
         </>
@@ -64,6 +66,7 @@ export default function WhatWeDo() {
             alt="Startup platform"
             width={160}
             height={160}
+            loading="lazy"
             className="pointer-events-none absolute right-1 top-2 md:h-28 md:w-28 h-20 w-20 object-contain opacity-85 transition-transform duration-500 group-hover:-translate-y-1"
           />
         </>
@@ -91,6 +94,7 @@ export default function WhatWeDo() {
             alt="Interview platform"
             width={160}
             height={160}
+            loading="lazy"
             className="pointer-events-none absolute -right-2 top-1 md:h-28 md:w-28 h-20 w-20 object-contain opacity-85 transition-transform duration-500 group-hover:scale-105"
           />
         </>
@@ -117,6 +121,7 @@ export default function WhatWeDo() {
             alt="Product infrastructure"
             width={150}
             height={150}
+            loading="lazy"
             className="pointer-events-none absolute right-2 -top-2 md:h-20 md:w-20 h-16 w-16 object-contain opacity-80 transition-transform duration-500 group-hover:rotate-2"
           />
         </>
@@ -141,6 +146,7 @@ export default function WhatWeDo() {
             alt="Industrial intelligence"
             width={170}
             height={170}
+            loading="lazy"
             className="pointer-events-none absolute -right-3 -top-2 md:h-24 md:w-24 h-16 w-16 object-contain opacity-80 transition-transform duration-500 group-hover:scale-105"
           />
         </>

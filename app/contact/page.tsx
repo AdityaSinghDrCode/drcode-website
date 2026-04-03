@@ -61,6 +61,7 @@ export default function ContactPage() {
                   alt="Contact Us"
                   width={400}
                   height={400}
+                  priority
                   className="object-contain max-w-md"
                 />
               </div>

@@ -4,16 +4,26 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  preload: true,
+});
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: {
     default: "DrCode — AI Venture Studio",
     template: "%s | DrCode — AI Venture Studio",
   },
-  description: "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems with expert development, strategic guidance, and cutting-edge technology.",
+  description:
+    "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems with expert development, strategic guidance, and cutting-edge technology.",
   keywords: [
     "AI development",
     "venture studio",
@@ -28,7 +38,7 @@ export const metadata: Metadata = {
     "AI venture capital",
     "AI solutions",
     "tech startup",
-    "AI innovation"
+    "AI innovation",
   ],
   authors: [{ name: "DrCode", url: "https://drcode.ai" }],
   creator: "DrCode",
@@ -69,7 +79,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://drcode.ai",
     title: "DrCode — AI Venture Studio",
-    description: "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems.",
+    description:
+      "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems.",
     siteName: "DrCode",
     images: [
       {
@@ -83,7 +94,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "DrCode — AI Venture Studio",
-    description: "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems.",
+    description:
+      "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems.",
     images: ["/og-image.png"],
     creator: "@drcode_ai",
     site: "@drcode_ai",
@@ -115,7 +127,12 @@ export default function RootLayout({
         <meta name="application-name" content="DrCode" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
       <body className={inter.className}>
         <Navbar />

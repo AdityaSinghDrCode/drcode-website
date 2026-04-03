@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function HowWeWork() {
   const steps = [
@@ -30,32 +31,71 @@ export default function HowWeWork() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
   return (
     <section
       id="how-we-work"
       className="py-24 md:py-32 px-6 bg-gradient-to-b from-gray-50 to-white"
     >
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16 text-center">
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h2 className="text-4xl md:text-6xl lg:text-[4.25rem] font-semibold text-gray-900 mb-6 leading-[0.95] tracking-[-0.02em]">
             How we work
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-[44ch] mx-auto leading-8">
             Four steps from idea to production
           </p>
-        </div>
+        </motion.div>
 
         {/* Vertical timeline layout */}
-        <div className="space-y-12">
+        <motion.div
+          className="space-y-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {steps.map((step, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={itemVariants}
               className={`flex flex-col md:flex-row gap-8 md:gap-12 items-center ${
                 index % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
             >
               {/* Number & Image Side */}
-              <div className="flex-shrink-0 relative md:w-64">
+              <motion.div
+                className="flex-shrink-0 relative md:w-64"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <div className="relative w-64 h-64 flex items-center justify-center">
                   {/* Step number - large background */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -70,19 +110,23 @@ export default function HowWeWork() {
                       alt={step.title}
                       width={160}
                       height={160}
+                      loading="lazy"
                       className="object-contain drop-shadow-lg"
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Content Side */}
               <div className={`flex-1 text-center md:text-left ${
                 index % 2 === 1 ? "md:text-right" : ""
               }`}>
-                <div className="inline-block mb-3 px-4 py-1 bg-purple-100 text-purple-900 rounded-full text-sm font-semibold">
+                <motion.div
+                  className="inline-block mb-3 px-4 py-1 bg-purple-100 text-purple-900 rounded-full text-sm font-semibold"
+                  whileHover={{ scale: 1.05 }}
+                >
                   Step {step.number}
-                </div>
+                </motion.div>
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                   {step.title}
                 </h3>
@@ -92,9 +136,9 @@ export default function HowWeWork() {
                   {step.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
