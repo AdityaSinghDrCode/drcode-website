@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 // Smooth easing curves
 const easeOutQuart: [number, number, number, number] = [0.25, 1, 0.5, 1];
 
 export default function WhyDrCode() {
+  const prefersReducedMotion = useReducedMotion();
+
   const reasons = [
     {
       title: "Real products, not demos",
@@ -63,10 +65,10 @@ export default function WhyDrCode() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: easeOutQuart }}
         >
-          <h2 className="text-4xl md:text-6xl lg:text-[4.25rem] font-semibold text-gray-900 mb-6 leading-[0.95] tracking-[-0.02em]">
+          <h2 className="type-display mb-6 text-gray-900">
             Why work with us
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-[46ch] mx-auto leading-8">
+          <p className="type-body-lg mx-auto text-gray-600">
             We're not consultants. We're builders who ship.
           </p>
         </motion.div>
@@ -84,14 +86,16 @@ export default function WhyDrCode() {
               key={index}
               variants={itemVariants}
               className="flex gap-6 group"
-              whileHover={{ x: 4 }}
+              whileHover={prefersReducedMotion ? undefined : { x: 4 }}
               transition={{ duration: 0.25, ease: easeOutQuart }}
             >
               {/* Icon/Image */}
               <div className="flex-shrink-0">
                 <motion.div
                   className="w-28 h-28 rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center"
-                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  whileHover={
+                    prefersReducedMotion ? undefined : { scale: 1.05, rotate: 2 }
+                  }
                   transition={{ duration: 0.25, ease: easeOutQuart }}
                 >
                   <Image
@@ -107,10 +111,10 @@ export default function WhyDrCode() {
 
               {/* Content */}
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#875BF8] transition-colors duration-200">
+                <h3 className="type-card-title mb-3 text-gray-900 transition-colors duration-200 group-hover:text-[#875BF8]">
                   {reason.title}
                 </h3>
-                <p className="text-base text-gray-600 leading-relaxed">
+                <p className="type-body text-gray-600">
                   {reason.description}
                 </p>
               </div>
@@ -118,17 +122,6 @@ export default function WhyDrCode() {
           ))}
         </motion.div>
       </div>
-
-      {/* Reduced motion support */}
-      <style jsx global>{`
-        @media (prefers-reduced-motion: reduce) {
-          * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

@@ -95,7 +95,7 @@ export default function WhatWeDo() {
             width={160}
             height={160}
             loading="lazy"
-            className="pointer-events-none absolute -right-2 top-1 md:h-28 md:w-28 h-20 w-20 object-contain opacity-85 transition-all duration-300 ease-out group-hover:scale-103 group-hover:opacity-95"
+            className="pointer-events-none absolute -right-2 top-1 md:h-28 md:w-28 h-20 w-20 object-contain opacity-85 transition-all duration-300 ease-out group-hover:scale-[1.03] group-hover:opacity-95"
           />
         </>
       ),
@@ -147,7 +147,7 @@ export default function WhatWeDo() {
             width={170}
             height={170}
             loading="lazy"
-            className="pointer-events-none absolute -right-3 -top-2 md:h-24 md:w-24 h-16 w-16 object-contain opacity-80 transition-all duration-300 ease-out group-hover:scale-103 group-hover:opacity-90"
+            className="pointer-events-none absolute -right-3 -top-2 md:h-24 md:w-24 h-16 w-16 object-contain opacity-80 transition-all duration-300 ease-out group-hover:scale-[1.03] group-hover:opacity-90"
           />
         </>
       ),
@@ -159,10 +159,10 @@ export default function WhatWeDo() {
     <section id="what-we-do" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20 text-center">
-          <h2 className="text-4xl md:text-6xl lg:text-[4.25rem] font-semibold text-gray-900 mb-6 leading-[0.95] tracking-[-0.02em]">
+          <h2 className="type-display mb-6 text-gray-900">
             What we build
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-8">
+          <p className="type-body-lg mx-auto text-gray-600">
             Real AI products solving real problems
           </p>
         </div>

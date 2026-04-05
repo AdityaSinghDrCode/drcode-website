@@ -17,11 +17,14 @@ export default function Hero() {
   const { mounted, prefersReducedMotion } = useHeroEntrance();
 
   return (
-    <section className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-white">
+    <section
+      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-white"
+      style={{ minHeight: "100dvh" }}
+    >
       <GLSLHills />
-      <div className="space-y-6 pointer-events-none z-10 text-center absolute px-6">
+      <div className="pointer-events-none absolute z-10 space-y-6 px-6 text-center">
         <p
-          className="text-sm md:text-base font-medium tracking-widest uppercase text-[#875BF8]"
+          className="type-eyebrow text-[#875BF8]"
           style={getEntranceStyle({
             isVisible: mounted,
             reducedMotion: prefersReducedMotion,
@@ -31,7 +34,7 @@ export default function Hero() {
           AI Venture Studio
         </p>
         <h1
-          className="font-semibold text-5xl md:text-7xl whitespace-pre-wrap text-gray-900 tracking-[-0.02em]"
+          className="type-display whitespace-pre-wrap text-gray-900"
           style={getEntranceStyle({
             isVisible: mounted,
             reducedMotion: prefersReducedMotion,
@@ -39,14 +42,14 @@ export default function Hero() {
             index: 1,
           })}
         >
-          <span className="italic text-4xl md:text-6xl font-thin">
+          <span className="block italic text-[0.72em] font-light leading-[1.05]">
             Build AI Products
             <br />
           </span>
           from Idea to Production
         </h1>
         <p
-          className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+          className="type-body-lg mx-auto text-gray-600"
           style={getEntranceStyle({
             isVisible: mounted,
             reducedMotion: prefersReducedMotion,

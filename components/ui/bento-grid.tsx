@@ -66,8 +66,8 @@ const BentoCard = ({
         )}
       >
         <Icon className="h-10 w-10 origin-left transform-gpu text-gray-900 transition-all duration-200 ease-out group-hover:scale-90 group-hover:text-[#875BF8]" />
-        <h3 className="text-lg font-semibold text-gray-900">{name}</h3>
-        <p className="max-w-lg text-gray-600 text-sm leading-relaxed">
+        <h3 className="type-card-title text-gray-900">{name}</h3>
+        <p className="type-body max-w-lg text-gray-600">
           {description}
         </p>
       </div>

@@ -86,7 +86,7 @@ export const Footer = ({
                   {navLinks.map((link, index) => (
                     <Link
                       key={index}
-                      className="text-muted-foreground text-sm hover:text-foreground transition-colors duration-200"
+                      className="inline-flex min-h-11 items-center text-muted-foreground text-sm hover:text-foreground transition-colors duration-200 py-1 -my-1"
                       href={link.href}
                     >
                       {link.label}

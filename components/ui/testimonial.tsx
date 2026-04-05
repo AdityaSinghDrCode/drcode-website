@@ -7,10 +7,10 @@ export function Component() {
     <section className="relative w-full overflow-x-hidden bg-white py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-8 text-center">
-          <h2 className="mb-4 text-4xl font-semibold leading-[0.95] tracking-[-0.02em] text-gray-900 md:text-5xl lg:text-6xl">
+          <h2 className="type-display mb-4 text-gray-900">
             What our clients say
           </h2>
-          <p className="mx-auto max-w-[58ch] text-base leading-8 text-gray-600 md:text-lg">
+          <p className="type-body-lg mx-auto text-gray-600">
             Real feedback from founders and teams we have partnered with
           </p>
         </div>

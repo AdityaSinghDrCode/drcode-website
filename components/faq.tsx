@@ -44,7 +44,7 @@ export default function FAQ() {
 
           {/* Right: FAQ */}
           <div className="lg:order-2">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 mb-10 leading-[0.95] tracking-[-0.02em]">
+            <h2 className="type-display mb-10 text-gray-900">
               Common questions
             </h2>
 
@@ -56,10 +56,10 @@ export default function FAQ() {
                       value={`item-${index}`}
                       className="border-b-0"
                     >
-                      <AccordionTrigger className="text-lg md:text-xl font-semibold tracking-tight text-gray-900 hover:no-underline py-6 hover:text-[#875BF8] transition-colors duration-200 text-left">
+                      <AccordionTrigger className="type-subhead py-6 text-left text-gray-900 transition-colors duration-200 hover:text-[#875BF8] hover:no-underline">
                         {faq.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-gray-600 text-base md:text-lg leading-relaxed pb-6">
+                      <AccordionContent className="type-body pb-6 text-gray-600">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>

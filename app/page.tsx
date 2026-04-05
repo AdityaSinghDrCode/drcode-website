@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import WhatWeDo from "@/components/what-we-do";
+import TechExpertise from "@/components/tech-expertise";
 import HowWeWork from "@/components/how-we-work";
 import WhyDrCode from "@/components/why-drcode";
 import VisionMissionValues from "@/components/vision-mission-values";
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <Hero />
       <WhatWeDo />
+      <TechExpertise />
       <HowWeWork />
       <WhyDrCode />
       <VisionMissionValues />

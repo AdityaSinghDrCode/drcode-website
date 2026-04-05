@@ -68,7 +68,7 @@ export const TracingBeam = ({
       ref={ref}
       className={cn("relative mx-auto h-full w-full max-w-4xl", className)}
     >
-      <div className="absolute top-3 -left-4 md:-left-8">
+      <div className="pointer-events-none absolute top-3 -left-4 z-10 md:-left-8">
         <motion.div
           transition={{
             duration: 0.55,
@@ -77,10 +77,10 @@ export const TracingBeam = ({
           }}
           animate={{
             boxShadow: hasScrolled
-              ? "none"
-              : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+              ? "0 0 0 1px rgba(135, 91, 248, 0.25)"
+              : "0 2px 12px rgba(135, 91, 248, 0.35), 0 0 0 1px rgba(135, 91, 248, 0.2)",
           }}
-          className="ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border border-neutral-200 shadow-sm"
+          className="ml-[27px] flex h-5 w-5 items-center justify-center rounded-full border border-[#875BF8]/30 bg-white shadow-sm"
         >
           <motion.div
             transition={{
@@ -89,33 +89,52 @@ export const TracingBeam = ({
               ease: [0.22, 1, 0.36, 1],
             }}
             animate={{
-              backgroundColor: hasScrolled ? "white" : "#10b981",
-              borderColor: hasScrolled ? "white" : "#059669",
+              backgroundColor: hasScrolled ? "#f5f3ff" : "#875BF8",
+              borderColor: hasScrolled ? "#c4b5fd" : "#6B3FD4",
             }}
-            className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
+            className="h-2.5 w-2.5 rounded-full border border-[#875BF8]/40 bg-white"
           />
         </motion.div>
         <svg
-          viewBox={`0 0 20 ${h}`}
-          width="20"
+          viewBox={`0 -40 24 ${h + 40}`}
+          width="24"
           height={h}
-          className="ml-4 block"
+          className="ml-3 block overflow-visible"
           aria-hidden
         >
           <path
             d={`M 1 0V -36 l 18 24 V ${h * 0.8} l -18 24V ${h}`}
             fill="none"
-            stroke="#9091A0"
-            strokeOpacity="0.16"
+            stroke="#875BF8"
+            strokeOpacity="0.35"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <motion.path
             d={`M 1 0V -36 l 18 24 V ${h * 0.8} l -18 24V ${h}`}
             fill="none"
             stroke={`url(#${gradientId})`}
-            strokeWidth="1.25"
+            strokeWidth="2.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            filter={`url(#${gradientId}-glow)`}
             className="motion-reduce:hidden"
           />
           <defs>
+            <filter
+              id={`${gradientId}-glow`}
+              x="-50%"
+              y="-50%"
+              width="200%"
+              height="200%"
+            >
+              <feGaussianBlur stdDeviation="1.25" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
             <motion.linearGradient
               id={gradientId}
               gradientUnits="userSpaceOnUse"
@@ -124,10 +143,11 @@ export const TracingBeam = ({
               y1={y1}
               y2={y2}
             >
-              <stop stopColor="#18CCFC" stopOpacity="0" />
-              <stop stopColor="#18CCFC" />
-              <stop offset="0.325" stopColor="#6344F5" />
-              <stop offset="1" stopColor="#AE48FF" stopOpacity="0" />
+              <stop stopColor="#38bdf8" stopOpacity="0.15" />
+              <stop offset="0.08" stopColor="#38bdf8" stopOpacity="1" />
+              <stop offset="0.35" stopColor="#875BF8" stopOpacity="1" />
+              <stop offset="0.92" stopColor="#a78bfa" stopOpacity="0.95" />
+              <stop offset="1" stopColor="#c4b5fd" stopOpacity="0.2" />
             </motion.linearGradient>
           </defs>
         </svg>
