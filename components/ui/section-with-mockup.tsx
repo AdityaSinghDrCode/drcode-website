@@ -93,7 +93,7 @@ export default function SectionWithMockup({
             <div className="space-y-1">
               <h3
                 id="who-we-are-story-heading"
-                className="type-subhead text-gray-950 md:text-[2.15rem]"
+                className="type-subhead text-gray-950"
               >
                 {title}
               </h3>
@@ -146,7 +146,7 @@ export default function SectionWithMockup({
                       <p className="type-card-title text-[oklch(0.28_0.06_285)]">
                         {pillar.title}
                       </p>
-                      <p className="mt-1 text-base leading-relaxed text-[oklch(0.4_0.03_285)]">
+                      <p className="type-body mt-1 text-[oklch(0.4_0.03_285)]">
                         {pillar.tagline}
                       </p>
                     </div>

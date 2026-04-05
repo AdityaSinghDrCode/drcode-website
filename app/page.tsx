@@ -21,13 +21,13 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <WhatWeDo />
       <HowWeWork />
-      <TechExpertise />
       <WhyDrCode />
+      <TechExpertise />
+      <WhatWeDo />
       <TestimonialShowcase />
-      <VisionMissionValues />
       <FAQ />
+      <VisionMissionValues />
       <CTA />
       <Footer />
     </main>

@@ -77,7 +77,7 @@ export default function VisionMissionValues() {
           description={
             <>
               We embed with startups and enterprises through discovery, build, and
-              scale—shipping typed frontends, APIs, data, and AI features as one
+              scale shipping typed frontends, APIs, data, and AI features as one
               coherent product. You get direct access to the people writing code and
               owning outcomes.
             </>

@@ -5,10 +5,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
-import { GlareHover } from "./ui/glare-hover";
 import { useHeroEntrance } from "./hero-entrance-context";
 import { getEntranceStyle } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import TextRoll from "@/components/ui/text-roll";
 
 const NAV_LINKS = [
   { id: "what-we-do", label: "What We Do" },
@@ -19,6 +19,9 @@ const NAV_LINKS = [
 export default function Navbar() {
   const { mounted, prefersReducedMotion } = useHeroEntrance();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeNavId, setActiveNavId] = useState<string | null>(null);
+  const [activeMobileNavId, setActiveMobileNavId] = useState<string | null>(null);
+  const [isGetStartedActive, setIsGetStartedActive] = useState(false);
 
   const scrollToSection = (id: string) => {
     setMobileOpen(false);
@@ -57,7 +60,7 @@ export default function Navbar() {
         ? createPortal(
             <button
               type="button"
-              className="fixed inset-0 z-40 bg-black/25 md:hidden"
+              className="fixed inset-0 z-40 bg-foreground/20 md:hidden"
               aria-label="Close menu"
               onClick={() => setMobileOpen(false)}
             />,
@@ -85,7 +88,7 @@ export default function Navbar() {
               height={32}
               className="h-8 w-8 shrink-0"
             />
-            <span className="text-xl font-bold tracking-[-0.04em] text-foreground sm:text-2xl">
+            <span className="type-logo text-foreground">
               DrCode
             </span>
           </Link>
@@ -105,9 +108,18 @@ export default function Navbar() {
                 key={id}
                 type="button"
                 onClick={() => scrollToSection(id)}
-                className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground focus:outline-none focus-visible:text-brand"
+                onMouseEnter={() => setActiveNavId(id)}
+                onMouseLeave={() => setActiveNavId(null)}
+                onFocus={() => setActiveNavId(id)}
+                onBlur={() => setActiveNavId(null)}
+                className="type-nav rounded-md px-1 py-1 text-muted-foreground transition-colors duration-200 hover:text-foreground focus:outline-none focus-visible:text-brand focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                {label}
+                <TextRoll
+                  active={activeNavId === id}
+                  className="!text-current dark:!text-current"
+                >
+                  {label}
+                </TextRoll>
               </button>
             ))}
           </div>
@@ -133,7 +145,9 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="inline-flex rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className={cn(
+                "inline-flex min-h-11 items-center justify-center rounded-full border border-transparent bg-ink px-7 text-base font-semibold text-primary-foreground shadow-[0_16px_40px_-20px_hsl(var(--ink)/0.45)] transition-all duration-300 hover:bg-ink/90 hover:shadow-[0_24px_52px_-22px_hsl(var(--brand)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]",
+              )}
               style={getEntranceStyle({
                 isVisible: mounted,
                 reducedMotion: prefersReducedMotion,
@@ -141,18 +155,17 @@ export default function Navbar() {
                 durationMs: 620,
                 offsetPx: 10,
               })}
+              onMouseEnter={() => setIsGetStartedActive(true)}
+              onMouseLeave={() => setIsGetStartedActive(false)}
+              onFocus={() => setIsGetStartedActive(true)}
+              onBlur={() => setIsGetStartedActive(false)}
             >
-              <GlareHover
-                className="rounded-full"
-                background="#000000"
-                color="#ffffff"
-                opacity={0.35}
-                playOnce
+              <TextRoll
+                active={isGetStartedActive}
+                className="!text-current dark:!text-current"
               >
-                <span className="relative z-20 inline-flex h-11 min-h-11 items-center justify-center rounded-full px-4 text-sm font-medium text-white sm:px-6">
-                  Get Started
-                </span>
-              </GlareHover>
+                Get Started
+              </TextRoll>
             </Link>
           </div>
         </div>
@@ -175,9 +188,18 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => scrollToSection(id)}
-                  className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-base font-medium text-foreground transition-colors hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+                  onMouseEnter={() => setActiveMobileNavId(id)}
+                  onMouseLeave={() => setActiveMobileNavId(null)}
+                  onFocus={() => setActiveMobileNavId(id)}
+                  onBlur={() => setActiveMobileNavId(null)}
+                  className="type-nav flex min-h-11 w-full items-center rounded-lg px-3 text-left text-foreground transition-colors hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
                 >
-                  {label}
+                  <TextRoll
+                    active={activeMobileNavId === id}
+                    className="!text-current dark:!text-current"
+                  >
+                    {label}
+                  </TextRoll>
                 </button>
               </li>
             ))}

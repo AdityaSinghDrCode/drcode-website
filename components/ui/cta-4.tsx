@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
 import { BorderBeam } from "@/components/ui/border-beam";
+import TextRoll from "@/components/ui/text-roll";
 import { cn } from "@/lib/utils";
 
 export interface Cta4Props {
@@ -33,37 +35,65 @@ function CtaLink({
   className?: string;
 }) {
   const external = /^https?:\/\//i.test(href);
+  const [active, setActive] = useState(false);
   const linkClassName = cn(
-    "mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-transparent bg-ink px-9 text-base font-semibold text-primary-foreground shadow-[0_16px_40px_-20px_hsl(var(--ink)/0.45)] transition-all duration-300 hover:bg-ink/90 hover:shadow-[0_24px_52px_-22px_hsl(var(--brand)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-[0.98]",
+    "mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-transparent bg-ink px-9 text-base font-semibold text-primary-foreground shadow-[0_16px_40px_-20px_hsl(var(--ink)/0.45)] transition-all duration-300 hover:bg-ink/90 hover:shadow-[0_24px_52px_-22px_hsl(var(--brand)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]",
     className,
   );
 
   if (external) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={linkClassName}
+      <span
+        className="mt-8 inline-flex"
+        onMouseEnter={() => setActive(true)}
+        onMouseLeave={() => setActive(false)}
+        onFocus={() => setActive(true)}
+        onBlur={() => setActive(false)}
       >
-        {buttonText}
-        <ArrowRight className="size-4" aria-hidden />
-      </a>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={cn(linkClassName, "mt-0")}
+        >
+          <TextRoll
+            active={active}
+            className="leading-none !text-current dark:!text-current"
+          >
+            {buttonText}
+          </TextRoll>
+          <ArrowRight className="size-4" aria-hidden />
+        </a>
+      </span>
     );
   }
 
   return (
-    <Link href={href} className={linkClassName}>
-      {buttonText}
-      <ArrowRight className="size-4" aria-hidden />
-    </Link>
+    <span
+      className="mt-8 inline-flex"
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+      onFocus={() => setActive(true)}
+      onBlur={() => setActive(false)}
+    >
+      <Link href={href} className={cn(linkClassName, "mt-0")}>
+        <TextRoll
+          active={active}
+          className="leading-none !text-current dark:!text-current"
+        >
+          {buttonText}
+        </TextRoll>
+        <ArrowRight className="size-4" aria-hidden />
+      </Link>
+    </span>
   );
 }
 
 export function Cta4({
   title = "Call to Action",
-  description = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto illo praesentium nisi, accusantium quae.",
-  buttonText = "Get Started",
+  description =
+    "Share your goals and constraints—we reply with a concrete plan, timeline, and how we would work together.",
+  buttonText = "Start a Project",
   href = "/contact",
   items = defaultItems,
 }: Cta4Props) {
@@ -96,14 +126,14 @@ export function Cta4({
                 <CtaLink href={href} buttonText={buttonText} />
               </div>
               <div className="relative z-[1] md:w-[38%] md:min-w-[min(100%,16rem)]">
-                <ul className="flex flex-col space-y-3 text-base font-medium leading-relaxed text-foreground">
+                <ul className="flex flex-col space-y-3 text-foreground">
                   {items.map((item, idx) => (
                     <li className="flex items-start gap-3" key={idx}>
                       <Check
                         className="mt-0.5 size-4 shrink-0 text-brand"
                         aria-hidden
                       />
-                      <span>{item}</span>
+                      <span className="type-list-item">{item}</span>
                     </li>
                   ))}
                 </ul>

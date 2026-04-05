@@ -5,6 +5,7 @@ import CardSwap, { Card } from "./CardSwap";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { cn } from "@/lib/utils";
 import { smoothEase } from "@/lib/motion";
+import ScrollFloat from "./ScrollFloat";
 
 const container = {
   hidden: { opacity: 0 },
@@ -54,7 +55,7 @@ export default function HowWeWork() {
   return (
     <section
       id="how-we-work"
-      className="relative overflow-hidden bg-background px-6 py-24 md:py-32"
+      className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 sm:py-20 md:py-28 lg:py-32"
     >
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(var(--brand)/0.12),transparent)]"
@@ -75,29 +76,37 @@ export default function HowWeWork() {
 
       <div className="relative mx-auto max-w-6xl">
         <motion.div
-          className="mx-auto mb-16 max-w-2xl text-center md:mb-20"
+          className="mx-auto mb-10 max-w-2xl text-center sm:mb-14 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.75, ease: smoothEase }}
         >
-          <p className="type-eyebrow mb-4 text-brand">
+          <p className="type-eyebrow mb-3 sm:mb-4 text-brand">
             Process
           </p>
-          <h2 className="type-section-title mb-5 text-foreground">
+          <ScrollFloat
+            containerClassName="type-section-title mb-3 text-foreground sm:mb-5"
+            textClassName="text-[1em] font-[inherit] leading-[inherit]"
+            animationDuration={1.2}
+            ease="back.inOut(1.8)"
+            scrollStart="center bottom+=60%"
+            scrollEnd="bottom bottom-=30%"
+            stagger={0.04}
+          >
             How we work
-          </h2>
-          <p className="type-body-lg mx-auto text-muted-foreground">
+          </ScrollFloat>
+          <p className="type-body mx-auto max-w-xl text-muted-foreground sm:type-body-lg">
             A clear path from first conversation to production, with velocity
             and quality at every step.
           </p>
         </motion.div>
 
-        <div className="grid items-start gap-16 lg:grid-cols-2 lg:gap-20">
-          <div className="min-w-0 pl-2 sm:pl-4 md:pl-6">
+        <div className="grid items-start gap-10 md:gap-14 lg:grid-cols-2 lg:gap-20">
+          <div className="min-w-0 pt-2 sm:pt-3 md:pl-4 lg:pt-5">
             <TracingBeam className="mx-0 max-w-none">
               <motion.div
-                className="space-y-4 md:space-y-5"
+                className="space-y-3.5 sm:space-y-4 md:space-y-5"
                 variants={container}
                 initial="hidden"
                 whileInView="show"
@@ -107,8 +116,8 @@ export default function HowWeWork() {
                   <motion.div key={step.number} variants={item}>
                     <div
                       className={cn(
-                        "group rounded-2xl border border-border/80 bg-card/70 px-6 py-7 shadow-[0_1px_0_hsl(var(--foreground)/0.04)] backdrop-blur-sm transition-all duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-                        "hover:border-brand/25 hover:bg-card hover:shadow-[0_20px_50px_-24px_hsl(var(--brand)/0.14)] md:px-7 md:py-9",
+                        "group min-h-[8rem] rounded-2xl border border-border/80 bg-card/70 px-4 py-5 shadow-[0_1px_0_hsl(var(--foreground)/0.04)] backdrop-blur-sm transition-all duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-5 sm:py-6 md:min-h-[9.5rem] md:px-7 md:py-10",
+                        "hover:border-brand/25 hover:bg-card hover:shadow-[0_20px_50px_-24px_hsl(var(--brand)/0.14)] lg:min-h-[10rem] lg:py-11",
                       )}
                     >
                       <div className="mb-3 flex flex-wrap items-center gap-3 md:hidden">
@@ -116,12 +125,15 @@ export default function HowWeWork() {
                           {step.number}
                         </span>
                       </div>
-                      <p className="type-label mb-2 text-brand/90">
+                      <p className="type-label mb-1.5 text-brand/90 sm:mb-2">
                         Step {step.number}
                       </p>
                       <h3 className="type-card-title text-foreground">
                         {step.title}
                       </h3>
+                      <p className="type-body mt-2 text-muted-foreground sm:mt-2.5 md:hidden">
+                        {step.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -134,20 +146,20 @@ export default function HowWeWork() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.75, ease: smoothEase, delay: 0.12 }}
-            className="relative mx-auto w-full max-w-[min(100%,440px)] lg:mx-0 lg:max-w-none"
+            className="relative mx-auto hidden w-full max-w-[min(100%,440px)] md:block lg:mx-0 lg:max-w-none"
           >
             <div
-              className="pointer-events-none absolute left-1/2 top-1/2 h-[min(120%,520px)] w-[min(100%,420px)] -translate-x-1/2 -translate-y-1/2 rounded-[2rem] bg-gradient-to-br from-purple-500/15 via-transparent to-violet-400/10 blur-2xl"
+              className="pointer-events-none absolute left-1/2 top-1/2 h-[min(120%,580px)] w-[min(100%,420px)] -translate-x-1/2 -translate-y-1/2 rounded-[2rem] bg-gradient-to-br from-purple-500/15 via-transparent to-violet-400/10 blur-2xl"
               aria-hidden
             />
-            <div className="relative min-h-[440px] md:min-h-[460px] lg:min-h-[420px]">
+            <div className="relative min-h-[500px] md:min-h-[520px] lg:min-h-[480px]">
               <CardSwap
                 verticalAlign="top"
                 width={420}
-                height={400}
+                height={460}
                 cardDistance={32}
-                verticalDistance={0}
-                delay={3500}
+                verticalDistance={28}
+                delay={3200}
                 pauseOnHover
                 skewAmount={2.5}
                 easing="linear"
@@ -155,7 +167,7 @@ export default function HowWeWork() {
                 {steps.map((step) => (
                   <Card
                     key={step.number}
-                    className="border-border/90 shadow-[0_25px_60px_-15px_hsl(var(--foreground)/0.1)] ring-1 ring-black/[0.04]"
+                    className="border-border/90 shadow-[0_25px_60px_-15px_hsl(var(--foreground)/0.1)] ring-1 ring-foreground/5"
                   >
                     <div className="flex h-full flex-col">
                       <p className="type-label mb-1 text-brand">

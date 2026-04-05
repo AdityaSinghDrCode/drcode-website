@@ -159,7 +159,7 @@ export default function WhatWeDo() {
     <section id="what-we-do" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20 text-center">
-          <h2 className="type-display mb-6 text-gray-900">
+          <h2 className="type-section-title mb-5 text-balance text-gray-900">
             What we build
           </h2>
           <p className="type-body-lg mx-auto text-gray-600">

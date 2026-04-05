@@ -44,7 +44,7 @@ export default function FAQ() {
 
           {/* Right: FAQ */}
           <div className="lg:order-2">
-            <h2 className="type-display mb-10 text-foreground">
+            <h2 className="type-section-title mb-8 text-balance text-foreground">
               Questions we hear often
             </h2>
 

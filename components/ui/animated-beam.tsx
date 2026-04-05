@@ -21,6 +21,10 @@ export interface AnimatedBeamProps {
   duration?: number
   repeat?: number
   repeatDelay?: number
+  /** `mirror` reverses each cycle so the gradient eases both ways. `loop` repeats the same direction (use with `ease="linear"` for a steady one-way pulse). */
+  repeatType?: "loop" | "mirror" | "reverse"
+  /** Easing for the gradient sweep. Default: soft in-out. Use `"linear"` for continuous one-way flow with `repeatType="loop"`. */
+  ease?: [number, number, number, number] | "linear"
   startXOffset?: number
   startYOffset?: number
   endXOffset?: number
@@ -43,11 +47,14 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   gradientStopColor = "#9c40ff",
   repeat = Infinity,
   repeatDelay = 0,
+  repeatType = "mirror",
+  ease: easeProp,
   startXOffset = 0,
   startYOffset = 0,
   endXOffset = 0,
   endYOffset = 0,
 }) => {
+  const ease = easeProp ?? [0.42, 0, 0.58, 1]
   const id = useId()
   const [pathD, setPathD] = useState("")
   const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 })
@@ -169,8 +176,9 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
           transition={{
             delay,
             duration,
-            ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
+            ease,
             repeat,
+            repeatType,
             repeatDelay,
           }}
         >

@@ -75,7 +75,7 @@ export default function WhyDrCode() {
             colorTo="hsl(270 95% 88% / 0.5)"
           />
           <div className="relative z-[1]">
-            <h2 className="type-display mb-5 text-balance text-foreground">
+            <h2 className="type-section-title mb-5 text-balance text-foreground">
               Why work with us
             </h2>
             <p className="type-body-lg mx-auto text-pretty text-muted-foreground">

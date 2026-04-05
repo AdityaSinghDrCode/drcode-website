@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { Send, Loader2 } from "lucide-react";
+import TextRoll from "@/components/ui/text-roll";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -177,12 +178,16 @@ export default function ContactForm() {
             {isSubmitting ? (
               <>
                 <Loader2 className="w-5 h-5 animate-spin" />
-                Sending your message...
+                <TextRoll className="!text-current dark:!text-current">
+                  Sending your message...
+                </TextRoll>
               </>
             ) : (
               <>
                 <Send className="w-5 h-5" />
-                Send Message
+                <TextRoll className="!text-current dark:!text-current">
+                  Send Message
+                </TextRoll>
               </>
             )}
           </button>
