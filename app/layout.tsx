@@ -3,13 +3,9 @@ import { Inter, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
+import { HeroEntranceProvider } from "@/components/hero-entrance-context";
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-  preload: true,
-});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -135,8 +131,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        <HeroEntranceProvider>
+          <Navbar />
+          {children}
+        </HeroEntranceProvider>
       </body>
     </html>
   );
