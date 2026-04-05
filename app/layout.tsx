@@ -15,6 +15,7 @@ const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-heading",
+  weight: ["300", "400", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -129,15 +130,8 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#875BF8" />
         <meta name="application-name" content="DrCode" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
-      <body>
+      <body className={cn("bg-background text-foreground antialiased")}>
         <HeroEntranceProvider>
           <Navbar />
           {children}

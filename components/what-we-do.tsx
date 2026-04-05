@@ -77,7 +77,7 @@ export default function WhatWeDo() {
       Icon: MessageSquare,
       name: "DrCode Interview",
       description:
-        "An AI-powered platform for conducting technical interviews. Streamlines the hiring process with intelligent assessment, real-time code evaluation, and comprehensive candidate insights.",
+        "AI-assisted technical interviews: structured assessments, real-time code evaluation, and clear candidate signals—so hiring teams spend less time on process and more on decisions.",
       href: "https://interviewbot.drcode.ai/",
       background: (
         <>
@@ -105,7 +105,7 @@ export default function WhatWeDo() {
       Icon: Smartphone,
       name: "Product Infrastructure for Consumer Platforms",
       description:
-        "Building internal products that help teams test new wall visualization systems faster and more efficiently.",
+        "Internal tools and workflows so consumer product teams can prototype visual experiences (for example, room or surface previews) and ship iterations without slowing releases.",
       background: (
         <>
           <GridPattern
@@ -132,7 +132,7 @@ export default function WhatWeDo() {
       Icon: Building2,
       name: "AI Systems for Industrial Intelligence",
       description:
-        "Building AI products for the Engineering, Procurement, and Construction (EPC) industry. Our team contributes across the entire lifecycle from product discovery and experimentation to building production-grade AI systems.",
+        "AI products for engineering and construction (EPC): we work from discovery and experiments through to production systems your teams can run and scale.",
       background: (
         <>
           <DotPattern

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
+import { GlareHover } from "./ui/glare-hover";
 import { useHeroEntrance } from "./hero-entrance-context";
 import { getEntranceStyle } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -44,7 +44,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-border/80 bg-background/80 backdrop-blur-md"
       style={getEntranceStyle({
         isVisible: mounted,
         reducedMotion: prefersReducedMotion,
@@ -69,7 +69,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between gap-3">
           <Link
             href="/"
-            className="flex min-h-11 min-w-0 items-center gap-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#875BF8] focus-visible:ring-offset-2"
+            className="flex min-h-11 min-w-0 items-center gap-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             style={getEntranceStyle({
               isVisible: mounted,
               reducedMotion: prefersReducedMotion,
@@ -85,7 +85,7 @@ export default function Navbar() {
               height={32}
               className="h-8 w-8 shrink-0"
             />
-            <span className="text-xl font-semibold text-gray-900 tracking-[-0.02em] sm:text-2xl">
+            <span className="text-xl font-bold tracking-[-0.04em] text-foreground sm:text-2xl">
               DrCode
             </span>
           </Link>
@@ -105,7 +105,7 @@ export default function Navbar() {
                 key={id}
                 type="button"
                 onClick={() => scrollToSection(id)}
-                className="text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-900 focus:outline-none focus-visible:text-[#875BF8]"
+                className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground focus:outline-none focus-visible:text-brand"
               >
                 {label}
               </button>
@@ -116,8 +116,8 @@ export default function Navbar() {
             <button
               type="button"
               className={cn(
-                "inline-flex h-11 w-11 items-center justify-center rounded-lg text-gray-800 transition-colors md:hidden",
-                "hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#875BF8] focus-visible:ring-offset-2",
+                "inline-flex h-11 w-11 items-center justify-center rounded-lg text-foreground transition-colors md:hidden",
+                "hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
               )}
               aria-expanded={mobileOpen}
               aria-controls="site-mobile-nav"
@@ -133,6 +133,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
+              className="inline-flex rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               style={getEntranceStyle({
                 isVisible: mounted,
                 reducedMotion: prefersReducedMotion,
@@ -141,9 +142,17 @@ export default function Navbar() {
                 offsetPx: 10,
               })}
             >
-              <Button className="h-11 min-h-11 bg-gray-900 px-4 text-sm font-medium text-white hover:bg-gray-800 sm:px-6 rounded-full transition-all duration-200 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[#875BF8] focus-visible:ring-offset-2">
-                Get Started
-              </Button>
+              <GlareHover
+                className="rounded-full"
+                background="#000000"
+                color="#ffffff"
+                opacity={0.35}
+                playOnce
+              >
+                <span className="relative z-20 inline-flex h-11 min-h-11 items-center justify-center rounded-full px-4 text-sm font-medium text-white sm:px-6">
+                  Get Started
+                </span>
+              </GlareHover>
             </Link>
           </div>
         </div>
@@ -155,7 +164,7 @@ export default function Navbar() {
         aria-modal="true"
         aria-label="Site sections"
         className={cn(
-          "border-t border-gray-100 bg-white/95 shadow-[0_12px_40px_-24px_rgba(0,0,0,0.2)] backdrop-blur-md md:hidden",
+          "border-t border-border/80 bg-background/95 shadow-[0_12px_40px_-24px_hsl(var(--foreground)/0.08)] backdrop-blur-md md:hidden",
           mobileOpen ? "block" : "hidden",
         )}
       >
@@ -166,7 +175,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => scrollToSection(id)}
-                  className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-base font-medium text-gray-800 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#875BF8]"
+                  className="flex min-h-11 w-full items-center rounded-lg px-3 text-left text-base font-medium text-foreground transition-colors hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
                 >
                   {label}
                 </button>

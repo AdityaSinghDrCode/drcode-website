@@ -67,9 +67,15 @@ export default function SectionWithMockup({
   const textOrderClass = reverseLayout ? "md:col-start-2" : "";
   const panelOrderClass = reverseLayout ? "md:col-start-1" : "";
 
+  const pillarAccent = [
+    "border-l-[oklch(0.58_0.2_285_/_0.55)]",
+    "border-l-[oklch(0.52_0.19_270_/_0.5)]",
+    "border-l-[oklch(0.55_0.14_200_/_0.5)]",
+  ] as const;
+
   return (
     <div
-      className="relative w-full border-y border-neutral-200 bg-white py-16 md:py-20"
+      className="relative w-full border-y border-[oklch(0.88_0.04_285)] bg-gradient-to-br from-white via-[oklch(0.995_0.01_285)] to-[oklch(0.97_0.028_285)] py-16 md:py-20"
       aria-labelledby="who-we-are-story-heading"
     >
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 md:px-0">
@@ -87,12 +93,12 @@ export default function SectionWithMockup({
             <div className="space-y-1">
               <h3
                 id="who-we-are-story-heading"
-                className="type-subhead text-gray-900 md:text-[2.15rem]"
+                className="type-subhead text-gray-950 md:text-[2.15rem]"
               >
                 {title}
               </h3>
             </div>
-            <p className="type-body-lg text-gray-600">
+            <p className="type-body-lg text-[oklch(0.38_0.025_285)]">
               {description}
             </p>
 
@@ -109,11 +115,11 @@ export default function SectionWithMockup({
               whileInView="visible"
               viewport={{ once: true, margin: "-30px" }}
             >
-              {pillars.map((pillar) => (
+              {pillars.map((pillar, index) => (
                 <motion.li
                   key={pillar.title}
                   variants={pillarItemVariants}
-                  className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-[0_12px_24px_-18px_rgba(0,0,0,0.16)] sm:p-6"
+                  className={`rounded-2xl border border-[oklch(0.9_0.035_285)] border-l-4 bg-[oklch(1_0_0_/_0.72)] p-5 shadow-[0_14px_28px_-20px_oklch(0.45_0.12_285_/_0.18)] backdrop-blur-sm transition-colors hover:border-[oklch(0.85_0.05_285)] sm:p-6 ${pillarAccent[index % pillarAccent.length]}`}
                 >
                   <div className="flex items-start gap-4">
                     <div className="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16">
@@ -137,10 +143,10 @@ export default function SectionWithMockup({
                       ) : null}
                     </div>
                     <div className="min-w-0">
-                      <p className="type-card-title text-gray-900">
+                      <p className="type-card-title text-[oklch(0.28_0.06_285)]">
                         {pillar.title}
                       </p>
-                      <p className="mt-1 text-base leading-relaxed text-gray-600">
+                      <p className="mt-1 text-base leading-relaxed text-[oklch(0.4_0.03_285)]">
                         {pillar.tagline}
                       </p>
                     </div>

@@ -48,7 +48,7 @@ const BentoCard = ({
     className={cn(
       "group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-xl",
       // light styles
-      "bg-white border border-gray-200 hover:border-[#875BF8]/50",
+      "bg-card border border-border hover:border-brand/50",
       // dark styles
       "dark:bg-background dark:border-gray-800",
       // smooth transitions
@@ -65,9 +65,9 @@ const BentoCard = ({
           href && cta && "lg:group-hover:-translate-y-10",
         )}
       >
-        <Icon className="h-10 w-10 origin-left transform-gpu text-gray-900 transition-all duration-200 ease-out group-hover:scale-90 group-hover:text-[#875BF8]" />
-        <h3 className="type-card-title text-gray-900">{name}</h3>
-        <p className="type-body max-w-lg text-gray-600">
+        <Icon className="h-10 w-10 origin-left transform-gpu text-foreground transition-all duration-200 ease-out group-hover:scale-90 group-hover:text-brand" />
+        <h3 className="type-card-title text-foreground">{name}</h3>
+        <p className="type-body max-w-lg text-muted-foreground">
           {description}
         </p>
       </div>
@@ -81,7 +81,7 @@ const BentoCard = ({
           <Button
             variant="link"
             size="sm"
-            className="pointer-events-auto p-0 text-gray-900 hover:text-[#875BF8]"
+            className="pointer-events-auto p-0 text-foreground hover:text-brand"
             render={<a href={href} />}
             nativeButton={false}
           >
@@ -101,7 +101,7 @@ const BentoCard = ({
         <Button
           variant="link"
           size="sm"
-          className="pointer-events-auto p-0 text-gray-900 hover:text-[#875BF8]"
+          className="pointer-events-auto p-0 text-foreground hover:text-brand"
           render={<a href={href} />}
           nativeButton={false}
         >
@@ -111,7 +111,7 @@ const BentoCard = ({
       </div>
     )}
 
-    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-200 ease-out group-hover:bg-[#875BF8]/[0.02]" />
+    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-200 ease-out group-hover:bg-brand/[0.03]" />
   </div>
 );
 

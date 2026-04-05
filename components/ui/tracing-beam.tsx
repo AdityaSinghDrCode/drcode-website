@@ -77,10 +77,10 @@ export const TracingBeam = ({
           }}
           animate={{
             boxShadow: hasScrolled
-              ? "0 0 0 1px rgba(135, 91, 248, 0.25)"
-              : "0 2px 12px rgba(135, 91, 248, 0.35), 0 0 0 1px rgba(135, 91, 248, 0.2)",
+              ? "0 0 0 1px hsl(262 83% 58% / 0.25)"
+              : "0 2px 12px hsl(262 83% 58% / 0.35), 0 0 0 1px hsl(262 83% 58% / 0.2)",
           }}
-          className="ml-[27px] flex h-5 w-5 items-center justify-center rounded-full border border-[#875BF8]/30 bg-white shadow-sm"
+          className="ml-[27px] flex h-5 w-5 items-center justify-center rounded-full border border-brand/30 bg-card shadow-sm"
         >
           <motion.div
             transition={{
@@ -89,10 +89,10 @@ export const TracingBeam = ({
               ease: [0.22, 1, 0.36, 1],
             }}
             animate={{
-              backgroundColor: hasScrolled ? "#f5f3ff" : "#875BF8",
-              borderColor: hasScrolled ? "#c4b5fd" : "#6B3FD4",
+              backgroundColor: hasScrolled ? "hsl(270 100% 98%)" : "hsl(262 83% 58%)",
+              borderColor: hasScrolled ? "hsl(258 90% 86%)" : "hsl(258 58% 48%)",
             }}
-            className="h-2.5 w-2.5 rounded-full border border-[#875BF8]/40 bg-white"
+            className="h-2.5 w-2.5 rounded-full border border-brand/40 bg-white"
           />
         </motion.div>
         <svg
@@ -105,7 +105,7 @@ export const TracingBeam = ({
           <path
             d={`M 1 0V -36 l 18 24 V ${h * 0.8} l -18 24V ${h}`}
             fill="none"
-            stroke="#875BF8"
+            stroke="hsl(262 83% 58%)"
             strokeOpacity="0.35"
             strokeWidth="1.5"
             strokeLinecap="round"
@@ -143,10 +143,10 @@ export const TracingBeam = ({
               y1={y1}
               y2={y2}
             >
-              <stop stopColor="#38bdf8" stopOpacity="0.15" />
-              <stop offset="0.08" stopColor="#38bdf8" stopOpacity="1" />
+              <stop stopColor="#ddd6fe" stopOpacity="0.2" />
+              <stop offset="0.08" stopColor="#a78bfa" stopOpacity="1" />
               <stop offset="0.35" stopColor="#875BF8" stopOpacity="1" />
-              <stop offset="0.92" stopColor="#a78bfa" stopOpacity="0.95" />
+              <stop offset="0.92" stopColor="#7c3aed" stopOpacity="0.95" />
               <stop offset="1" stopColor="#c4b5fd" stopOpacity="0.2" />
             </motion.linearGradient>
           </defs>

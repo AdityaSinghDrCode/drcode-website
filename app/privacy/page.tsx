@@ -39,7 +39,7 @@ export default function PrivacyPage() {
     <main className="min-h-screen bg-white">
       <section className="py-32 px-6">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm md:text-base font-medium tracking-widest uppercase text-[#875BF8] text-center mb-4">
+          <p className="mb-4 text-center text-sm font-medium uppercase tracking-widest text-brand md:text-base">
             Legal
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 text-gray-900">
@@ -366,7 +366,7 @@ export default function PrivacyPage() {
                     Email:{" "}
                     <a
                       href="mailto:hello@drcode.ai"
-                      className="text-[#875BF8] hover:underline"
+                      className="text-brand hover:underline"
                     >
                       hello@drcode.ai
                     </a>
@@ -479,7 +479,7 @@ export default function PrivacyPage() {
           <div className="mt-16 text-center">
             <Link
               href="/"
-              className="text-[#875BF8] hover:underline font-medium"
+              className="font-medium text-brand hover:underline"
             >
               &larr; Back to Home
             </Link>

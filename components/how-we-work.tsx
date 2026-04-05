@@ -54,10 +54,10 @@ export default function HowWeWork() {
   return (
     <section
       id="how-we-work"
-      className="relative overflow-hidden py-24 md:py-32 px-6"
+      className="relative overflow-hidden bg-background px-6 py-24 md:py-32"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(135,91,248,0.12),transparent)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(var(--brand)/0.12),transparent)]"
         aria-hidden
       />
       <div
@@ -69,7 +69,7 @@ export default function HowWeWork() {
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_40%,transparent)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--foreground)/0.04)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--foreground)/0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_40%,transparent)]"
         aria-hidden
       />
 
@@ -81,13 +81,13 @@ export default function HowWeWork() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.75, ease: smoothEase }}
         >
-          <p className="type-eyebrow mb-4 text-[#875BF8]">
+          <p className="type-eyebrow mb-4 text-brand">
             Process
           </p>
-          <h2 className="type-section-title mb-5 text-gray-900">
+          <h2 className="type-section-title mb-5 text-foreground">
             How we work
           </h2>
-          <p className="type-body-lg mx-auto text-gray-600">
+          <p className="type-body-lg mx-auto text-muted-foreground">
             A clear path from first conversation to production, with velocity
             and quality at every step.
           </p>
@@ -107,19 +107,19 @@ export default function HowWeWork() {
                   <motion.div key={step.number} variants={item}>
                     <div
                       className={cn(
-                        "group rounded-2xl border border-gray-200/80 bg-white/70 px-6 py-7 shadow-[0_1px_0_rgba(0,0,0,0.03)] backdrop-blur-sm transition-all duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-                        "hover:border-purple-200/60 hover:bg-white hover:shadow-[0_20px_50px_-24px_rgba(135,91,248,0.18)] md:px-7 md:py-9",
+                        "group rounded-2xl border border-border/80 bg-card/70 px-6 py-7 shadow-[0_1px_0_hsl(var(--foreground)/0.04)] backdrop-blur-sm transition-all duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+                        "hover:border-brand/25 hover:bg-card hover:shadow-[0_20px_50px_-24px_hsl(var(--brand)/0.14)] md:px-7 md:py-9",
                       )}
                     >
                       <div className="mb-3 flex flex-wrap items-center gap-3 md:hidden">
-                        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#875BF8]/10 text-xs font-bold text-[#6B3FD4]">
+                        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand/10 text-xs font-bold text-brand-dark">
                           {step.number}
                         </span>
                       </div>
-                      <p className="type-label mb-2 text-[#875BF8]/90">
+                      <p className="type-label mb-2 text-brand/90">
                         Step {step.number}
                       </p>
-                      <h3 className="type-card-title text-gray-900">
+                      <h3 className="type-card-title text-foreground">
                         {step.title}
                       </h3>
                     </div>
@@ -146,7 +146,7 @@ export default function HowWeWork() {
                 width={420}
                 height={400}
                 cardDistance={32}
-                verticalDistance={28}
+                verticalDistance={0}
                 delay={3500}
                 pauseOnHover
                 skewAmount={2.5}
@@ -155,16 +155,16 @@ export default function HowWeWork() {
                 {steps.map((step) => (
                   <Card
                     key={step.number}
-                    className="border-gray-200/90 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.15)] ring-1 ring-black/[0.04]"
+                    className="border-border/90 shadow-[0_25px_60px_-15px_hsl(var(--foreground)/0.1)] ring-1 ring-black/[0.04]"
                   >
                     <div className="flex h-full flex-col">
-                      <p className="type-label mb-1 text-[#875BF8]">
+                      <p className="type-label mb-1 text-brand">
                         Step {step.number}
                       </p>
-                      <h4 className="type-subhead text-gray-900">
+                      <h4 className="type-subhead text-foreground">
                         {step.title}
                       </h4>
-                      <p className="type-body mt-3 text-gray-600">
+                      <p className="type-body mt-3 text-muted-foreground">
                         {step.description}
                       </p>
                     </div>

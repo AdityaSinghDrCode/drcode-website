@@ -18,13 +18,13 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-white"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-background"
       style={{ minHeight: "100dvh" }}
     >
       <GLSLHills />
       <div className="pointer-events-none absolute z-10 space-y-6 px-6 text-center">
         <p
-          className="type-eyebrow text-[#875BF8]"
+          className="type-eyebrow text-brand"
           style={getEntranceStyle({
             isVisible: mounted,
             reducedMotion: prefersReducedMotion,
@@ -34,7 +34,7 @@ export default function Hero() {
           AI Venture Studio
         </p>
         <h1
-          className="type-display whitespace-pre-wrap text-gray-900"
+          className="type-display whitespace-pre-wrap text-foreground"
           style={getEntranceStyle({
             isVisible: mounted,
             reducedMotion: prefersReducedMotion,
@@ -42,14 +42,14 @@ export default function Hero() {
             index: 1,
           })}
         >
-          <span className="block italic text-[0.72em] font-light leading-[1.05]">
+          <span className="block italic text-[0.72em] font-light leading-[1.05] text-muted-foreground">
             Build AI Products
             <br />
           </span>
-          from Idea to Production
+          <span className="font-light">from Idea to Production</span>
         </h1>
         <p
-          className="type-body-lg mx-auto text-gray-600"
+          className="type-body-lg mx-auto text-muted-foreground"
           style={getEntranceStyle({
             isVisible: mounted,
             reducedMotion: prefersReducedMotion,
@@ -70,7 +70,7 @@ export default function Hero() {
             index: 3,
           })}
         >
-          <Link href="/contact">
+ <Link href="/contact">
             <Button
               size="lg"
               className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-6 text-base rounded-full transition-all duration-200 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-[#875BF8] focus-visible:ring-offset-2 active:scale-[0.98]"

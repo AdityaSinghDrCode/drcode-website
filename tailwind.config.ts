@@ -54,6 +54,12 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          dark: "hsl(var(--brand-dark))",
+          hover: "hsl(var(--brand-hover))",
+        },
+        ink: "hsl(var(--ink))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -66,6 +72,7 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        shine: "shine var(--duration,14s) linear infinite",
         marquee: "marquee var(--duration) linear infinite",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
@@ -90,6 +97,11 @@ const config: Config = {
           "100%": {
             "offset-distance": "100%",
           },
+        },
+        shine: {
+          "0%": { backgroundPosition: "0% 0%" },
+          "50%": { backgroundPosition: "100% 100%" },
+          "100%": { backgroundPosition: "0% 0%" },
         },
         marquee: {
           from: { transform: "translateX(0)" },

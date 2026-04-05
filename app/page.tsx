@@ -1,24 +1,32 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/hero";
 import WhatWeDo from "@/components/what-we-do";
-import TechExpertise from "@/components/tech-expertise";
-import HowWeWork from "@/components/how-we-work";
-import WhyDrCode from "@/components/why-drcode";
-import VisionMissionValues from "@/components/vision-mission-values";
-import FAQ from "@/components/faq";
-import CTA from "@/components/cta";
-import Footer from "@/components/footer";
-import { Component as TestimonialShowcase } from "@/components/ui/testimonial";
+
+const TechExpertise = dynamic(() => import("@/components/tech-expertise"));
+const HowWeWork = dynamic(() => import("@/components/how-we-work"));
+const WhyDrCode = dynamic(() => import("@/components/why-drcode"));
+const VisionMissionValues = dynamic(
+  () => import("@/components/vision-mission-values"),
+);
+const TestimonialShowcase = dynamic(() =>
+  import("@/components/ui/testimonial").then((mod) => ({
+    default: mod.Component,
+  })),
+);
+const FAQ = dynamic(() => import("@/components/faq"));
+const CTA = dynamic(() => import("@/components/cta"));
+const Footer = dynamic(() => import("@/components/footer"));
 
 export default function Home() {
   return (
     <main>
       <Hero />
       <WhatWeDo />
-      <TechExpertise />
       <HowWeWork />
+      <TechExpertise />
       <WhyDrCode />
-      <VisionMissionValues />
       <TestimonialShowcase />
+      <VisionMissionValues />
       <FAQ />
       <CTA />
       <Footer />

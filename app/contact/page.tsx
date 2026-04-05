@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <main className="min-h-screen bg-gradient-to-b from-background to-muted/50">
       {/* Hero Section with Form - fits in viewport */}
       <section className="min-h-screen flex items-center py-20 px-6">
         <div className="max-w-7xl mx-auto w-full">
@@ -43,14 +43,15 @@ export default function ContactPage() {
             {/* Left: Header & Illustration */}
             <div className="space-y-8">
               <div>
-                <p className="text-sm md:text-base font-medium tracking-widest uppercase text-[#875BF8] mb-4">
+                <p className="mb-4 text-sm font-medium uppercase tracking-widest text-brand md:text-base">
                   Get in touch
                 </p>
-                <h1 className="text-5xl md:text-6xl font-semibold mb-6 text-gray-900 tracking-[-0.02em] leading-[0.95]">
+                <h1 className="mb-6 text-5xl font-semibold leading-[0.95] tracking-[-0.02em] text-foreground md:text-6xl">
                   Contact Us
                 </h1>
-                <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-lg">
-                  Let's discuss how we can help you build something great
+                <p className="max-w-lg text-lg leading-relaxed text-muted-foreground md:text-xl">
+                  Share your idea or product needs—we respond within one business
+                  day, usually sooner.
                 </p>
               </div>
 
@@ -68,47 +69,45 @@ export default function ContactPage() {
             </div>
 
             {/* Right: Contact Form */}
-            <div className="bg-white rounded-3xl border-2 border-gray-100 p-8 shadow-lg">
-              <ContactForm />
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
 
       {/* Contact Info Cards Section - below the fold */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 text-center mb-10 tracking-[-0.02em]">
+      <section className="bg-background px-6 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-10 text-center text-3xl font-semibold tracking-[-0.02em] text-foreground md:text-4xl">
             Other ways to reach us
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             <a
               href="tel:+919999410384"
-              className="bg-white border-2 border-gray-100 rounded-3xl p-8 text-center hover:border-[#875BF8] hover:shadow-lg transition-all duration-200 hover:-translate-y-1 block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#875BF8] focus-visible:ring-offset-2"
+              className="group block rounded-3xl border-2 border-border bg-card p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:border-brand hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#875BF8]/10 group-hover:bg-[#875BF8]/20 transition-colors duration-200 mb-6">
-                <Phone className="w-8 h-8 text-[#875BF8]" />
+              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand/10 transition-colors duration-200 group-hover:bg-brand/20">
+                <Phone className="h-8 w-8 text-brand" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-[#875BF8] transition-colors duration-200">
+              <h3 className="mb-3 text-xl font-semibold text-foreground transition-colors duration-200 group-hover:text-brand">
                 Phone
               </h3>
-              <span className="text-lg text-gray-600 font-medium">
+              <span className="text-lg font-medium text-muted-foreground">
                 +91 99994 10384
               </span>
             </a>
 
             <a
               href="mailto:hello@drcode.ai"
-              className="bg-white border-2 border-gray-100 rounded-3xl p-8 text-center hover:border-[#875BF8] hover:shadow-lg transition-all duration-200 hover:-translate-y-1 block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#875BF8] focus-visible:ring-offset-2"
+              className="group block rounded-3xl border-2 border-border bg-card p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:border-brand hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#875BF8]/10 group-hover:bg-[#875BF8]/20 transition-colors duration-200 mb-6">
-                <Mail className="w-8 h-8 text-[#875BF8]" />
+              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand/10 transition-colors duration-200 group-hover:bg-brand/20">
+                <Mail className="h-8 w-8 text-brand" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-[#875BF8] transition-colors duration-200">
+              <h3 className="mb-3 text-xl font-semibold text-foreground transition-colors duration-200 group-hover:text-brand">
                 Email
               </h3>
-              <span className="text-lg text-gray-600 font-medium">
+              <span className="text-lg font-medium text-muted-foreground">
                 hello@drcode.ai
               </span>
             </a>
@@ -118,7 +117,7 @@ export default function ContactPage() {
           <div className="mt-12 text-center">
             <Link
               href="/"
-              className="text-[#875BF8] hover:text-[#6d4ac6] font-medium inline-flex items-center gap-2 transition-colors duration-200 focus:outline-none focus-visible:underline"
+              className="inline-flex items-center gap-2 font-medium text-brand transition-colors duration-200 hover:text-brand-hover focus:outline-none focus-visible:underline"
             >
               ← Back to Home
             </Link>

@@ -8,7 +8,10 @@ export async function POST(request: NextRequest) {
     // Validation
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
-        { error: "All fields are required" },
+        {
+          error:
+            "Please fill in your name, email, subject, and message—each field is required.",
+        },
         { status: 400 },
       );
     }
@@ -17,7 +20,10 @@ export async function POST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { error: "Invalid email address" },
+        {
+          error:
+            "That email doesn't look valid. Use a format like name@company.com.",
+        },
         { status: 400 },
       );
     }

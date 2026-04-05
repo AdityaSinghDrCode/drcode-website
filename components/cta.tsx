@@ -1,7 +1,7 @@
 import { Cta4 } from "@/components/ui/cta-4";
 
 const drCodeCtaItems = [
-  "End-to-end partner—from product strategy to production launch",
+  "End-to-end partner from product strategy to production launch",
   "AI integrations built for reliability, not just demos",
   "Small senior team with direct communication and fast iteration",
   "Modern engineering practices so your product can scale",

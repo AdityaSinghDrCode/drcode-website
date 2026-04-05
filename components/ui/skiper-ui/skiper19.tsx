@@ -29,7 +29,7 @@ const Skiper19 = () => {
         />
       </div>
 
-      <div className="rounded-4xl w-full translate-y-[200vh] bg-[#875BF8] pb-10 text-white">
+      <div className="w-full translate-y-[200vh] rounded-4xl bg-brand pb-10 text-white">
         <h1 className="mt-10 text-center text-[15.5vw] font-bold leading-[0.9] tracking-tighter lg:text-[16.6vw]">
           Let's Build
         </h1>

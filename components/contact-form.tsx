@@ -36,19 +36,22 @@ export default function ContactForm() {
         setStatus({
           type: "success",
           message:
-            "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+            "Thanks—we received your message. We'll reply within one business day, usually sooner.",
         });
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         setStatus({
           type: "error",
-          message: data.error || "Something went wrong. Please try again.",
+          message:
+            data.error ||
+            "We couldn't send your message. Check your connection and try again, or email hello@drcode.ai.",
         });
       }
     } catch {
       setStatus({
         type: "error",
-        message: "Failed to send message. Please try again later.",
+        message:
+          "We couldn't send your message. Try again in a moment, or email hello@drcode.ai.",
       });
     } finally {
       setIsSubmitting(false);
@@ -66,12 +69,12 @@ export default function ContactForm() {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <div className="bg-white border-2 border-gray-100 rounded-3xl p-8 md:p-12 shadow-lg">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-900 text-center tracking-[-0.02em]">
+      <div className="rounded-3xl border-2 border-border bg-card p-8 shadow-lg md:p-12">
+        <h2 className="mb-4 text-center text-2xl font-semibold tracking-[-0.02em] text-foreground md:text-3xl">
           Send us a message
         </h2>
-        <p className="text-gray-600 text-center mb-8 leading-relaxed">
-          We'll respond within 24 hours
+        <p className="mb-8 text-center leading-relaxed text-muted-foreground">
+          We typically reply within one business day (often sooner).
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -79,9 +82,9 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-900 mb-2"
+                className="mb-2 block text-sm font-medium text-foreground"
               >
-                Name <span className="text-[#875BF8]">*</span>
+                Name <span className="text-brand">*</span>
               </label>
               <input
                 type="text"
@@ -90,7 +93,7 @@ export default function ContactForm() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-[#875BF8]/20 focus:border-[#875BF8] outline-none transition-all duration-200 bg-white text-gray-900 placeholder:text-gray-400"
+                className="w-full rounded-xl border-2 border-input bg-background px-4 py-3 text-foreground outline-none transition-all duration-200 placeholder:text-muted-foreground focus:border-brand focus:ring-2 focus:ring-ring/25"
                 placeholder="Your name"
               />
             </div>
@@ -98,9 +101,9 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-900 mb-2"
+                className="mb-2 block text-sm font-medium text-foreground"
               >
-                Email <span className="text-[#875BF8]">*</span>
+                Email <span className="text-brand">*</span>
               </label>
               <input
                 type="email"
@@ -109,7 +112,7 @@ export default function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-[#875BF8]/20 focus:border-[#875BF8] outline-none transition-all duration-200 bg-white text-gray-900 placeholder:text-gray-400"
+                className="w-full rounded-xl border-2 border-input bg-background px-4 py-3 text-foreground outline-none transition-all duration-200 placeholder:text-muted-foreground focus:border-brand focus:ring-2 focus:ring-ring/25"
                 placeholder="your@email.com"
               />
             </div>
@@ -118,9 +121,9 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="subject"
-              className="block text-sm font-medium text-gray-900 mb-2"
+              className="mb-2 block text-sm font-medium text-foreground"
             >
-              Subject <span className="text-[#875BF8]">*</span>
+              Subject <span className="text-brand">*</span>
             </label>
             <input
               type="text"
@@ -129,7 +132,7 @@ export default function ContactForm() {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-[#875BF8]/20 focus:border-[#875BF8] outline-none transition-all duration-200 bg-white text-gray-900 placeholder:text-gray-400"
+              className="w-full rounded-xl border-2 border-input bg-background px-4 py-3 text-foreground outline-none transition-all duration-200 placeholder:text-muted-foreground focus:border-brand focus:ring-2 focus:ring-ring/25"
               placeholder="How can we help?"
             />
           </div>
@@ -137,9 +140,9 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="message"
-              className="block text-sm font-medium text-gray-900 mb-2"
+              className="mb-2 block text-sm font-medium text-foreground"
             >
-              Message <span className="text-[#875BF8]">*</span>
+              Message <span className="text-brand">*</span>
             </label>
             <textarea
               id="message"
@@ -148,7 +151,7 @@ export default function ContactForm() {
               onChange={handleChange}
               required
               rows={6}
-              className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-[#875BF8]/20 focus:border-[#875BF8] outline-none transition-all duration-200 resize-none bg-white text-gray-900 placeholder:text-gray-400"
+              className="w-full resize-none rounded-xl border-2 border-input bg-background px-4 py-3 text-foreground outline-none transition-all duration-200 placeholder:text-muted-foreground focus:border-brand focus:ring-2 focus:ring-ring/25"
               placeholder="Tell us more about your project or inquiry..."
             />
           </div>
@@ -169,12 +172,12 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#875BF8] hover:bg-[#6d4ac6] text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#875BF8] focus-visible:ring-offset-2"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isSubmitting ? (
               <>
                 <Loader2 className="w-5 h-5 animate-spin" />
-                Sending...
+                Sending your message...
               </>
             ) : (
               <>

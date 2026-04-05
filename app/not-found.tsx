@@ -6,22 +6,22 @@ import { Home, ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-white flex items-center justify-center">
+    <main className="flex min-h-screen items-center justify-center bg-background">
       <div className="text-center px-6">
         <div className="mb-8">
-          <span className="text-[180px] md:text-[240px] font-bold text-gray-100 leading-none select-none">
+          <span className="select-none text-[180px] font-bold leading-none text-muted-foreground/15 md:text-[240px]">
             404
           </span>
           <div className="relative -mt-24 md:-mt-32">
-            <p className="text-sm md:text-base font-medium tracking-widest uppercase text-[#875BF8] mb-4">
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-brand md:text-base">
               Page Not Found
             </p>
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-              Oops! You&apos;re lost in space
+            <h1 className="mb-4 text-3xl font-bold text-foreground md:text-5xl">
+              We couldn&apos;t find that page
             </h1>
-            <p className="text-lg text-gray-600 max-w-md mx-auto mb-8">
-              The page you&apos;re looking for doesn&apos;t exist or has been moved to
-              another dimension.
+            <p className="mx-auto mb-8 max-w-md text-lg text-muted-foreground">
+              The link may be wrong, or the page may have moved. Check the URL or
+              return to the homepage.
             </p>
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function NotFound() {
           <Link href="/">
             <Button
               size="lg"
-              className="bg-[#875BF8] hover:bg-[#7347e0] text-white px-8 py-6 text-base gap-2"
+              className="gap-2 px-8 py-6 text-base hover:bg-primary/90"
             >
               <Home className="w-5 h-5" />
               Back to Home
@@ -39,7 +39,7 @@ export default function NotFound() {
           <Button
             size="lg"
             variant="outline"
-            className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-6 text-base gap-2"
+            className="gap-2 border-border px-8 py-6 text-base text-foreground hover:bg-muted"
             onClick={() => window.history.back()}
           >
             <ArrowLeft className="w-5 h-5" />
@@ -51,7 +51,7 @@ export default function NotFound() {
           {[...Array(5)].map((_, i) => (
             <div
               key={i}
-              className="w-2 h-2 rounded-full bg-[#875BF8] animate-pulse"
+              className="h-2 w-2 animate-pulse rounded-full bg-brand"
               style={{ animationDelay: `${i * 0.15}s` }}
             />
           ))}
