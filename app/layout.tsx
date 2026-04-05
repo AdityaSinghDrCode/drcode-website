@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     siteName: "DrCode",
     images: [
       {
-        url: "/og-image.png",
+        url: "/image.png",
         width: 1200,
         height: 630,
         alt: "DrCode — AI Venture Studio",
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     title: "DrCode — AI Venture Studio",
     description:
       "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems.",
-    images: ["/og-image.png"],
+    images: ["/image.png"],
     creator: "@drcode_ai",
     site: "@drcode_ai",
   },
