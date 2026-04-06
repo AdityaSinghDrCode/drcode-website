@@ -79,7 +79,8 @@ export default function WhatWeDo() {
       name: "DrCode Interview",
       description:
         "AI-assisted technical interviews: structured assessments, real-time code evaluation, and clear candidate signals—so hiring teams spend less time on process and more on decisions.",
-      href: "https://interviewbot.drcode.ai/",
+      href: "/drcode-interviews",
+      cta: "Visit product page",
       background: (
         <>
           <GridPattern

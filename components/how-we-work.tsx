@@ -103,10 +103,10 @@ export default function HowWeWork() {
         </motion.div>
 
         <div className="grid items-start gap-10 md:gap-14 lg:grid-cols-2 lg:gap-20">
-          <div className="min-w-0 pl-3 pt-2 sm:pl-4 sm:pt-3 md:pl-4 lg:pt-5">
+          <div className="min-w-0 pl-3 pt-1 sm:pl-4 sm:pt-1.5 md:pl-4 lg:pt-2">
             <TracingBeam className="mx-0 max-w-none">
               <motion.div
-                className="space-y-3.5 sm:space-y-4 md:space-y-5"
+                className="space-y-2.5 sm:space-y-3 md:space-y-3 lg:space-y-3.5"
                 variants={container}
                 initial="hidden"
                 whileInView="show"
@@ -116,8 +116,8 @@ export default function HowWeWork() {
                   <motion.div key={step.number} variants={item}>
                     <div
                       className={cn(
-                        "group min-h-[8rem] rounded-2xl border border-border/80 bg-card/80 px-3 py-5 pl-12 shadow-[0_1px_0_hsl(var(--foreground)/0.04)] backdrop-blur-sm transition-all duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] sm:bg-card/70 sm:px-5 sm:py-6 sm:pl-12 md:min-h-[9.5rem] md:px-7 md:py-10",
-                        "hover:border-brand/25 hover:bg-card hover:shadow-[0_20px_50px_-24px_hsl(var(--brand)/0.14)] lg:min-h-[10rem] lg:py-11",
+                        "group min-h-[7rem] rounded-2xl border border-border/80 bg-card/80 px-3 py-4 pl-12 shadow-[0_1px_0_hsl(var(--foreground)/0.04)] backdrop-blur-sm transition-all duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] sm:bg-card/70 sm:px-5 sm:py-4.5 sm:pl-12 md:min-h-[5.25rem] md:px-6 md:py-3.5",
+                        "hover:border-brand/25 hover:bg-card hover:shadow-[0_20px_50px_-24px_hsl(var(--brand)/0.14)] lg:min-h-[5.75rem] lg:py-4",
                       )}
                     >
                       <div className="mb-3 flex flex-wrap items-center gap-3 md:hidden">
@@ -125,7 +125,7 @@ export default function HowWeWork() {
                           {step.number}
                         </span>
                       </div>
-                      <p className="type-label mb-1.5 text-brand/90 sm:mb-2">
+                      <p className="type-label mb-1.5 text-brand/90 sm:mb-2 md:mb-1">
                         Step {step.number}
                       </p>
                       <h3 className="type-card-title text-foreground">
