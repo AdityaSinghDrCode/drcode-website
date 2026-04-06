@@ -1,4 +1,5 @@
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { AnimatedHeadingHighlight } from "@/components/ui/animated-heading-highlight";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import Image from "next/image";
@@ -159,10 +160,10 @@ export default function WhatWeDo() {
     <section id="what-we-do" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20 text-center">
-          <h2 className="type-section-title mb-5 text-balance text-gray-900">
+          <AnimatedHeadingHighlight align="center" className="text-gray-900">
             What we build
-          </h2>
-          <p className="type-body-lg mx-auto text-gray-600">
+          </AnimatedHeadingHighlight>
+          <p className="type-body-lg mx-auto mt-4 text-gray-600">
             Real AI products solving real problems
           </p>
         </div>

@@ -68,7 +68,7 @@ export const TracingBeam = ({
       ref={ref}
       className={cn("relative mx-auto h-full w-full max-w-4xl", className)}
     >
-      <div className="pointer-events-none absolute top-0 -left-4 z-10 md:-left-8">
+      <div className="pointer-events-none absolute top-0 -left-1 z-10 sm:-left-3 md:-left-8">
         <motion.div
           transition={{
             duration: 0.55,
@@ -80,7 +80,7 @@ export const TracingBeam = ({
               ? "0 0 0 1px hsl(262 83% 58% / 0.25)"
               : "0 2px 12px hsl(262 83% 58% / 0.35), 0 0 0 1px hsl(262 83% 58% / 0.2)",
           }}
-          className="ml-[27px] flex h-5 w-5 items-center justify-center rounded-full border border-brand/30 bg-card shadow-sm"
+          className="ml-[22px] flex h-4 w-4 items-center justify-center rounded-full border border-brand/30 bg-card shadow-sm sm:ml-[25px] sm:h-5 sm:w-5 md:ml-[27px]"
         >
           <motion.div
             transition={{
@@ -92,14 +92,14 @@ export const TracingBeam = ({
               backgroundColor: hasScrolled ? "hsl(270 100% 98%)" : "hsl(262 83% 58%)",
               borderColor: hasScrolled ? "hsl(258 90% 86%)" : "hsl(258 58% 48%)",
             }}
-            className="h-2.5 w-2.5 rounded-full border border-brand/40 bg-white"
+            className="h-2 w-2 rounded-full border border-brand/40 bg-white sm:h-2.5 sm:w-2.5"
           />
         </motion.div>
         <svg
           viewBox={`0 -40 24 ${h + 40}`}
           width="24"
           height={h}
-          className="ml-3 block overflow-visible"
+          className="ml-2 block overflow-visible sm:ml-3"
           aria-hidden
         >
           <path
@@ -111,6 +111,16 @@ export const TracingBeam = ({
             strokeLinecap="round"
             strokeLinejoin="round"
           />
+          {/* Mobile: no SVG filter glow (lighter GPU + clearer on small screens) */}
+          <motion.path
+            d={`M 1 0V -36 l 18 24 V ${h * 0.8} l -18 24V ${h}`}
+            fill="none"
+            stroke={`url(#${gradientId})`}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="motion-reduce:hidden md:hidden"
+          />
           <motion.path
             d={`M 1 0V -36 l 18 24 V ${h * 0.8} l -18 24V ${h}`}
             fill="none"
@@ -119,7 +129,7 @@ export const TracingBeam = ({
             strokeLinecap="round"
             strokeLinejoin="round"
             filter={`url(#${gradientId}-glow)`}
-            className="motion-reduce:hidden"
+            className="motion-reduce:hidden hidden md:block"
           />
           <defs>
             <filter

@@ -23,11 +23,11 @@ export default function Home() {
       <Hero />
       <HowWeWork />
       <WhyDrCode />
-      <TechExpertise />
+      {/* <TechExpertise /> */}
       <WhatWeDo />
       <TestimonialShowcase />
       <FAQ />
-      <VisionMissionValues />
+      {/* <VisionMissionValues /> */}
       <CTA />
       <Footer />
     </main>

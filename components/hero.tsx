@@ -92,7 +92,7 @@ export default function Hero() {
             <Link
               href="/contact"
               className={cn(
-                "inline-flex min-h-11 items-center justify-center px-8 py-3 text-base font-semibold text-primary-foreground shadow-[0_16px_40px_-20px_hsl(var(--ink)/0.45)] transition-all duration-300 hover:shadow-[0_24px_52px_-22px_hsl(var(--brand)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]",
+                "inline-flex min-h-11 items-center justify-center px-9 py-3 text-base font-semibold text-primary-foreground shadow-[0_16px_40px_-20px_hsl(var(--ink)/0.45)] transition-all duration-300 hover:shadow-[0_24px_52px_-22px_hsl(var(--brand)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]",
               )}
               onFocus={() => setIsCtaActive(true)}
               onBlur={() => setIsCtaActive(false)}

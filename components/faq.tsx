@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AnimatedHeadingHighlight } from "@/components/ui/animated-heading-highlight";
 import Image from "next/image";
 
 export default function FAQ() {
@@ -44,9 +45,11 @@ export default function FAQ() {
 
           {/* Right: FAQ */}
           <div className="lg:order-2">
-            <h2 className="type-section-title mb-8 text-balance text-foreground">
-              Questions we hear often
-            </h2>
+            <div className="mb-8">
+              <AnimatedHeadingHighlight align="start" className="text-foreground">
+                Questions we hear often
+              </AnimatedHeadingHighlight>
+            </div>
 
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (

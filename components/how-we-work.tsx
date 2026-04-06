@@ -62,11 +62,11 @@ export default function HowWeWork() {
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-purple-400/10 blur-3xl"
+        className="pointer-events-none absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-purple-400/10 blur-2xl sm:h-80 sm:w-80 sm:blur-3xl md:h-96 md:w-96"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-violet-300/15 blur-3xl"
+        className="pointer-events-none absolute -right-24 bottom-0 h-56 w-56 rounded-full bg-violet-300/12 blur-2xl sm:h-72 sm:w-72 sm:blur-3xl md:h-80 md:w-80"
         aria-hidden
       />
       <div
@@ -103,7 +103,7 @@ export default function HowWeWork() {
         </motion.div>
 
         <div className="grid items-start gap-10 md:gap-14 lg:grid-cols-2 lg:gap-20">
-          <div className="min-w-0 pt-2 sm:pt-3 md:pl-4 lg:pt-5">
+          <div className="min-w-0 pl-3 pt-2 sm:pl-4 sm:pt-3 md:pl-4 lg:pt-5">
             <TracingBeam className="mx-0 max-w-none">
               <motion.div
                 className="space-y-3.5 sm:space-y-4 md:space-y-5"
@@ -116,7 +116,7 @@ export default function HowWeWork() {
                   <motion.div key={step.number} variants={item}>
                     <div
                       className={cn(
-                        "group min-h-[8rem] rounded-2xl border border-border/80 bg-card/70 px-4 py-5 shadow-[0_1px_0_hsl(var(--foreground)/0.04)] backdrop-blur-sm transition-all duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-5 sm:py-6 md:min-h-[9.5rem] md:px-7 md:py-10",
+                        "group min-h-[8rem] rounded-2xl border border-border/80 bg-card/80 px-3 py-5 pl-12 shadow-[0_1px_0_hsl(var(--foreground)/0.04)] backdrop-blur-sm transition-all duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] sm:bg-card/70 sm:px-5 sm:py-6 sm:pl-12 md:min-h-[9.5rem] md:px-7 md:py-10",
                         "hover:border-brand/25 hover:bg-card hover:shadow-[0_20px_50px_-24px_hsl(var(--brand)/0.14)] lg:min-h-[10rem] lg:py-11",
                       )}
                     >

@@ -124,7 +124,7 @@ const testimonials = [
     role: "CEO & founder",
     image: "/avatar/5.jpg",
     content:
-      "Direct communication and zero fluff. We scaled scope when it made sense and cut when it did not—exactly how I want to work.",
+      "Direct communication and zero fluff. We scaled scope when it made sense and cut when it did not, exactly how I want to work.",
     rating: 5,
   },
   {
@@ -178,7 +178,7 @@ export default function HeroTestimonials() {
             className="mx-auto max-w-3xl text-center text-lg leading-relaxed tracking-tight text-gray-600 md:text-xl dark:text-gray-400"
             variants={titleVariants}
           >
-            Founders and operators we have partnered with on AI products—from
+            Founders and operators we have partnered with on AI products, from
             first prototype through production.
           </motion.p>
         </motion.div>

@@ -146,7 +146,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               className={cn(
-                "inline-flex min-h-11 items-center justify-center rounded-full border border-transparent bg-ink px-7 text-base font-semibold text-primary-foreground shadow-[0_16px_40px_-20px_hsl(var(--ink)/0.45)] transition-all duration-300 hover:bg-ink/90 hover:shadow-[0_24px_52px_-22px_hsl(var(--brand)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]",
+                "inline-flex min-h-11 items-center justify-center rounded-full border border-transparent bg-ink px-8 text-base font-semibold text-primary-foreground shadow-[0_16px_40px_-20px_hsl(var(--ink)/0.45)] transition-all duration-300 hover:bg-ink/90 hover:shadow-[0_24px_52px_-22px_hsl(var(--brand)/0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]",
               )}
               style={getEntranceStyle({
                 isVisible: mounted,

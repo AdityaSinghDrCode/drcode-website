@@ -3,57 +3,64 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/ui/marquee";
 
+/** Avatar art from `public/illustration/*-avatar.svg` */
+const AVATARS = {
+  womanLong: "/illustration/woman-with-long-hair-avatar.svg",
+  womanCurly: "/illustration/woman-with-curly-hair-avatar.svg",
+  manShort: "/illustration/man-with-short-hair-avatar.svg",
+  manLong: "/illustration/man-with-long-hair-avatar.svg",
+} as const;
+
 const reviews = [
   {
-    name: "Alex",
-    username: "@alexbuilds",
+    name: "Nithyakala",
     body: "Clear scope, fast iterations, and engineers who actually own the outcome. Exactly what we needed while we were still finding product-market fit.",
-    img: "/avatar/1.jpg",
+    img: AVATARS.womanLong,
   },
   {
-    name: "Priya",
-    username: "@priya_codes",
-    body: "They turned a fuzzy idea into something we could put in front of real users in weeks. No endless planning—just steady, visible progress.",
-    img: "/avatar/2.jpg",
+    name: "Aditya Ji",
+    body: "They turned a fuzzy idea into something we could put in front of real users in weeks. No endless planning, just steady, visible progress.",
+    img: AVATARS.manShort,
   },
   {
-    name: "Jordan",
-    username: "@jordanmakes",
+    name: "Yourmitra",
     body: "Communication stayed direct and the work felt production-ready from the first milestone. We could trust what shipped.",
-    img: "/avatar/3.jpg",
+    img: AVATARS.manLong,
   },
   {
-    name: "Sam",
-    username: "@samlabs_io",
+    name: "Kavitha",
     body: "We stopped circling the same roadmap conversations and started shipping. The momentum carried straight through to launch.",
-    img: "/avatar/4.jpg",
+    img: AVATARS.womanCurly,
   },
   {
-    name: "Rina",
-    username: "@rina_dev",
+    name: "Rohan Mehta",
     body: "They pushed back when it mattered and aligned when it helped. It felt like an embedded team, not a black box handing off builds.",
-    img: "/avatar/5.jpg",
+    img: AVATARS.manShort,
   },
   {
-    name: "Marcus",
-    username: "@marcus_pm",
-    body: "From early architecture to go-live, decisions were tied to what would work for real customers—not what looked good on paper.",
-    img: "/avatar/6.jpg",
+    name: "Priya Sharma",
+    body: "From early architecture to go-live, decisions were tied to what would work for real customers, not what looked good on paper.",
+    img: AVATARS.womanLong,
+  },
+  {
+    name: "Arjun Varma",
+    body: "Solid architecture, pragmatic trade-offs, and no hand-waving. We shipped to production with confidence instead of crossing our fingers.",
+    img: AVATARS.manLong,
+  },
+  {
+    name: "Vikram Singh",
+    body: "Direct communication and zero fluff. We scaled scope when it made sense and cut when it did not, exactly how I want to work.",
+    img: AVATARS.manShort,
   },
 ];
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
 
 function ReviewCard({
   img,
   name,
-  username,
   body,
 }: {
   img: string;
   name: string;
-  username: string;
   body: string;
 }) {
   return (
@@ -64,22 +71,21 @@ function ReviewCard({
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}
     >
-      <div className="flex flex-row items-center gap-2">
+      <div className="flex flex-row items-center gap-3">
         <img
-          className="rounded-full object-cover"
-          width={32}
-          height={32}
-          alt=""
+          className="h-9 w-9 shrink-0 rounded-full bg-muted object-contain p-0.5"
+          width={36}
+          height={36}
+          alt={name}
           src={img}
         />
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-semibold leading-snug text-gray-900">
             {name}
-          </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          </p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <blockquote className="mt-2 text-sm text-gray-800">{body}</blockquote>
     </figure>
   );
 }
@@ -88,28 +94,23 @@ export function MarqueeDemo() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden py-4">
       <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+        {reviews.map((review) => (
+          <ReviewCard key={review.name} {...review} />
         ))}
       </Marquee>
       {/* Wide, multi-stop fades so cards dissolve gradually (not a hard vertical edge) */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[min(40vw,15rem)] backdrop-blur-[1px] md:w-[min(32vw,22rem)]"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[min(40vw,15rem)] md:w-[min(20vw,12rem)] md:backdrop-blur-[1px]"
         style={{
           background:
-            "linear-gradient(90deg, rgb(255 255 255) 0%, rgba(255,255,255,0.92) 8%, rgba(255,255,255,0.65) 28%, rgba(255,255,255,0.28) 58%, rgba(255,255,255,0.06) 82%, transparent 100%)",
+            "linear-gradient(90deg, rgb(255 255 255) 0%, rgba(255,255,255,0.96) 10%, rgba(255,255,255,0.78) 32%, rgba(255,255,255,0.38) 62%, rgba(255,255,255,0.08) 88%, transparent 100%)",
         }}
       />
       <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[min(40vw,15rem)] backdrop-blur-[1px] md:w-[min(32vw,22rem)]"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[min(40vw,15rem)] md:w-[min(20vw,12rem)] md:backdrop-blur-[1px]"
         style={{
           background:
-            "linear-gradient(270deg, rgb(255 255 255) 0%, rgba(255,255,255,0.92) 8%, rgba(255,255,255,0.65) 28%, rgba(255,255,255,0.28) 58%, rgba(255,255,255,0.06) 82%, transparent 100%)",
+            "linear-gradient(270deg, rgb(255 255 255) 0%, rgba(255,255,255,0.96) 10%, rgba(255,255,255,0.78) 32%, rgba(255,255,255,0.38) 62%, rgba(255,255,255,0.08) 88%, transparent 100%)",
         }}
       />
     </div>

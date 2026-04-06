@@ -7,6 +7,10 @@ import { cn } from "@/lib/utils";
 
 const STAGGER = 0.035;
 
+function isSpaceChar(c: string) {
+  return c === " " || c === "\u00a0";
+}
+
 export default function TextRoll({
   children,
   className,
@@ -30,14 +34,15 @@ export default function TextRoll({
         className,
       )}
       style={{
-        lineHeight: 1,
+        lineHeight: 1.15,
       }}
     >
-      <div>
+      <div className="min-h-[1.15em]">
         {children.split("").map((l, i) => {
           const delay = center
             ? STAGGER * Math.abs(i - (children.length - 1) / 2)
             : STAGGER * i;
+          const space = isSpaceChar(l);
 
           return (
             <motion.span
@@ -53,20 +58,24 @@ export default function TextRoll({
                 ease: "easeInOut",
                 delay,
               }}
-              className="inline-block"
+              className={cn(
+                "inline-block shrink-0 align-top",
+                space && "w-[0.35em] min-w-[0.35em]",
+              )}
               key={i}
             >
-              {l}
+              {space ? "\u00a0" : l}
             </motion.span>
           );
         })}
       </div>
 
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 min-h-[1.15em]">
         {children.split("").map((l, i) => {
           const delay = center
             ? STAGGER * Math.abs(i - (children.length - 1) / 2)
             : STAGGER * i;
+          const space = isSpaceChar(l);
 
           return (
             <motion.span
@@ -82,10 +91,13 @@ export default function TextRoll({
                 ease: "easeInOut",
                 delay,
               }}
-              className="inline-block"
+              className={cn(
+                "inline-block shrink-0 align-top",
+                space && "w-[0.35em] min-w-[0.35em]",
+              )}
               key={i}
             >
-              {l}
+              {space ? "\u00a0" : l}
             </motion.span>
           );
         })}

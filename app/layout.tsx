@@ -20,8 +20,8 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "DrCode — AI Venture Studio",
-    template: "%s | DrCode — AI Venture Studio",
+    default: "DrCode AI Venture Studio",
+    template: "%s | DrCode AI Venture Studio",
   },
   description:
     "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems with expert development, strategic guidance, and cutting-edge technology.",
@@ -79,25 +79,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://drcode.ai",
-    title: "DrCode — AI Venture Studio",
+    title: "DrCode  AI Venture Studio",
     description:
       "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems.",
     siteName: "DrCode",
     images: [
       {
-        url: "/image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "DrCode — AI Venture Studio",
+        alt: "DrCode AI Venture Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DrCode — AI Venture Studio",
+    title: "DrCode AI Venture Studio",
     description:
       "DrCode is an AI Venture Studio that builds scalable AI products from idea to production. We help startups and enterprises turn concepts into successful AI systems.",
-    images: ["/image.png"],
+    images: ["/og-image.png"],
     creator: "@drcode_ai",
     site: "@drcode_ai",
   },
