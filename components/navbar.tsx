@@ -19,17 +19,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const { mounted, prefersReducedMotion } = useHeroEntrance();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeNavId, setActiveNavId] = useState<string | null>(null);
-  const [activeMobileNavId, setActiveMobileNavId] = useState<string | null>(null);
   const [isGetStartedActive, setIsGetStartedActive] = useState(false);
-
-  const scrollToSection = (id: string) => {
-    setMobileOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -104,23 +94,13 @@ export default function Navbar() {
             })}
           >
             {NAV_LINKS.map(({ id, label }) => (
-              <button
+              <Link
                 key={id}
-                type="button"
-                onClick={() => scrollToSection(id)}
-                onMouseEnter={() => setActiveNavId(id)}
-                onMouseLeave={() => setActiveNavId(null)}
-                onFocus={() => setActiveNavId(id)}
-                onBlur={() => setActiveNavId(null)}
+                href={`/#${id}`}
                 className="type-nav rounded-md px-1 py-1 text-muted-foreground transition-colors duration-200 hover:text-foreground focus:outline-none focus-visible:text-brand focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                <TextRoll
-                  active={activeNavId === id}
-                  className="!text-current dark:!text-current"
-                >
-                  {label}
-                </TextRoll>
-              </button>
+                {label}
+              </Link>
             ))}
           </div>
 
@@ -185,22 +165,13 @@ export default function Navbar() {
           <ul className="flex flex-col gap-0.5">
             {NAV_LINKS.map(({ id, label }) => (
               <li key={id}>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection(id)}
-                  onMouseEnter={() => setActiveMobileNavId(id)}
-                  onMouseLeave={() => setActiveMobileNavId(null)}
-                  onFocus={() => setActiveMobileNavId(id)}
-                  onBlur={() => setActiveMobileNavId(null)}
+                <Link
+                  href={`/#${id}`}
+                  onClick={() => setMobileOpen(false)}
                   className="type-nav flex min-h-11 w-full items-center rounded-lg px-3 text-left text-foreground transition-colors hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
                 >
-                  <TextRoll
-                    active={activeMobileNavId === id}
-                    className="!text-current dark:!text-current"
-                  >
-                    {label}
-                  </TextRoll>
-                </button>
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>
